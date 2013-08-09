@@ -32,6 +32,13 @@ public class Player {
     public int dexterity;
     public int level;
     public int experience;
+    public int reqXP;
+    
+    public final int reqXP_Level2 = 20;
+    public final int reqXP_Level3 = 30;
+    public final int reqXP_Level4 = 50;
+    public final int reqXP_Level5 = 100;
+    
     
     public Classes cclass;
     
@@ -62,7 +69,7 @@ public class Player {
         imgdown = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Front.png");
         imgright = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Right.png");
         imgleft = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Left.png");
-        test();
+
         
         strength = cla.strength;
         intelligence = cla.intelligence;
@@ -70,16 +77,53 @@ public class Player {
         dexterity = cla.dexterity;
         level = 1;
         experience = 1;
+        reqXP = reqXP_Level2;
         
         maxhealth = 100;
         currenthealth = maxhealth;
         
         maxmana = 100;
         currentmana = maxmana;
+        test();
+        
+    }
+    
+    //Adds a certain amount of xp the total xp and checks to see if the char should level up
+    public void addXP(int amountOfXP){
+        experience += amountOfXP;
+        while(experience > reqXP){
+            experience = experience - reqXP;
+            switch(level){
+                case 1:
+                    reqXP = reqXP_Level3;
+                    levelUp();
+                    break;
+                case 2:
+                    reqXP = reqXP_Level4;
+                    levelUp();
+                    break;
+                case 3:
+                    reqXP = reqXP_Level5;
+                    levelUp();
+                    break;
+                default:
+                    levelUp();
+                    break;
+                    
+            }
+        }
+    }
+    
+    private void levelUp(){
+        level++;
+    }
+    
+    private void generatePerk(int level){
         
     }
     
     public void test(){
+        addXP(200);
         addItem(new Weapon(Weapon.Weap.GREAT_SWORD));
         addItem(new Shield(Shield.Shld.WOOD_SHIELD));
         addItem(new Armor(Armor.Armr.IRON_BOOTS));
