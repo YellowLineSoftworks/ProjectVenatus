@@ -65,6 +65,15 @@ public class DisplayHandler {
          mgui.Intell.setText("" + Player.mainchar.intelligence);
          mgui.Vitality.setText("" + Player.mainchar.vitality);
          mgui.Strength.setText("" + Player.mainchar.strength);
+         
+         
+         mgui.pointsRemaining.setText("" + Player.mainchar.skillPoints);
+         mgui.skillsDexterity.setText("" + Player.mainchar.dexterity);
+         mgui.skillsIntelligence.setText("" + Player.mainchar.intelligence);
+         mgui.skillsVitality.setText("" + Player.mainchar.vitality);
+         mgui.skillsStrength.setText("" + Player.mainchar.strength);
+         
+         
     }
     
     public static void moveCharacter(String direction){
@@ -301,7 +310,8 @@ public class DisplayHandler {
         MainGUI.SilkAmount.setText(Integer.toString(MainBase.mainbase.currentsilk));
         
     }
-    /*public static void displayWeapon(boolean dis){
+    
+    public static void displayWeapon(boolean dis){
         if(dis){
             if(disp.imageExists(weapUp)){
                 disp.removeImage(weapUp);
@@ -331,7 +341,7 @@ public class DisplayHandler {
                 disp.removeImage(weaponSprite);
             }
         }
-    }*/
+    }
     
     
     

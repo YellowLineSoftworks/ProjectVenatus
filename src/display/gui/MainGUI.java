@@ -15,6 +15,7 @@ import items.Armor;
 import java.awt.Window;
 import javax.swing.JOptionPane;
 import main.ClientEventHandler;
+import main.Player;
 import worldobjects.Tile;
 
 /**
@@ -172,21 +173,22 @@ public class MainGUI extends javax.swing.JFrame {
         Strengthlabel1 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        strengthUp = new javax.swing.JButton();
+        strengthDown = new javax.swing.JButton();
+        intellUp = new javax.swing.JButton();
+        dexterityDown = new javax.swing.JButton();
+        vitalityDown = new javax.swing.JButton();
+        intellDown = new javax.swing.JButton();
+        dexterityUp = new javax.swing.JButton();
+        vitalityUp = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        Intell2 = new javax.swing.JTextField();
+        pointsRemaining = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         perkDescription = new javax.swing.JTextPane();
         jLabel31 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -1197,27 +1199,67 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setText("Intelligence");
 
-        jButton5.setText("+");
+        strengthUp.setText("+");
+        strengthUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                strengthUpMouseClicked(evt);
+            }
+        });
 
-        jButton6.setText("-");
+        strengthDown.setText("-");
+        strengthDown.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                strengthDownMouseClicked(evt);
+            }
+        });
 
-        jButton7.setText("+");
+        intellUp.setText("+");
+        intellUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                intellUpMouseClicked(evt);
+            }
+        });
 
-        jButton8.setText("-");
+        dexterityDown.setText("-");
+        dexterityDown.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dexterityDownMouseClicked(evt);
+            }
+        });
 
-        jButton9.setText("-");
+        vitalityDown.setText("-");
+        vitalityDown.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vitalityDownMouseClicked(evt);
+            }
+        });
 
-        jButton10.setText("-");
+        intellDown.setText("-");
+        intellDown.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                intellDownMouseClicked(evt);
+            }
+        });
 
-        jButton11.setText("+");
+        dexterityUp.setText("+");
+        dexterityUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dexterityUpMouseClicked(evt);
+            }
+        });
 
-        jButton12.setText("+");
+        vitalityUp.setText("+");
+        vitalityUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vitalityUpMouseClicked(evt);
+            }
+        });
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("Points Remaining");
 
-        Intell2.setBackground(new java.awt.Color(204, 204, 204));
-        Intell2.setText("0");
+        pointsRemaining.setBackground(new java.awt.Color(204, 204, 204));
+        pointsRemaining.setText("0");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1250,22 +1292,22 @@ public class MainGUI extends javax.swing.JFrame {
                                             .addComponent(skillsStrength, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(strengthUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(intellUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(vitalityUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dexterityUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(strengthDown, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vitalityDown, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dexterityDown, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(intellDown, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel24)))
                         .addGap(8, 8, 8))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addComponent(Intell2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pointsRemaining, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))))
         );
         jPanel12Layout.setVerticalGroup(
@@ -1275,29 +1317,29 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Strengthlabel1)
                     .addComponent(skillsStrength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(strengthUp)
+                    .addComponent(strengthDown))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(skillsIntelligence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton10)
+                    .addComponent(intellUp)
+                    .addComponent(intellDown)
                     .addComponent(jLabel24))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Intell2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pointsRemaining, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(skillsVitality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton12))
+                    .addComponent(vitalityDown)
+                    .addComponent(vitalityUp))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(skillsDexterity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton11))
+                    .addComponent(dexterityDown)
+                    .addComponent(dexterityUp))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -1310,6 +1352,9 @@ public class MainGUI extends javax.swing.JFrame {
             jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
             jLabel31.setText("Perk Name");
 
+            jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            jTextField3.setText("0");
+
             javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
             jPanel6.setLayout(jPanel6Layout);
             jPanel6Layout.setHorizontalGroup(
@@ -1320,9 +1365,10 @@ public class MainGUI extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(jTextField3))
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1343,13 +1389,14 @@ public class MainGUI extends javax.swing.JFrame {
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addContainerGap())
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(2, 2, 2)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGap(4, 4, 4)
                                     .addComponent(jLabel31)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1442,6 +1489,38 @@ public class MainGUI extends javax.swing.JFrame {
         DisplayHandler.addonInfoPrinter();
     }//GEN-LAST:event_UpgradeButtonMouseClicked
 
+    private void strengthUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_strengthUpMouseClicked
+        Player.mainchar.addAttributePoint("s");
+    }//GEN-LAST:event_strengthUpMouseClicked
+
+    private void strengthDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_strengthDownMouseClicked
+        Player.mainchar.subtractAttributePoint("s");
+    }//GEN-LAST:event_strengthDownMouseClicked
+
+    private void intellUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_intellUpMouseClicked
+        Player.mainchar.addAttributePoint("i");
+    }//GEN-LAST:event_intellUpMouseClicked
+
+    private void vitalityUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vitalityUpMouseClicked
+        Player.mainchar.addAttributePoint("v");
+    }//GEN-LAST:event_vitalityUpMouseClicked
+
+    private void dexterityUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dexterityUpMouseClicked
+        Player.mainchar.addAttributePoint("d");
+    }//GEN-LAST:event_dexterityUpMouseClicked
+
+    private void intellDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_intellDownMouseClicked
+        Player.mainchar.subtractAttributePoint("i");
+    }//GEN-LAST:event_intellDownMouseClicked
+
+    private void vitalityDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vitalityDownMouseClicked
+        Player.mainchar.subtractAttributePoint("v");
+    }//GEN-LAST:event_vitalityDownMouseClicked
+
+    private void dexterityDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dexterityDownMouseClicked
+        Player.mainchar.subtractAttributePoint("d");
+    }//GEN-LAST:event_dexterityDownMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1486,7 +1565,6 @@ public class MainGUI extends javax.swing.JFrame {
     public static javax.swing.JTextField GoldAmount;
     public static javax.swing.JTextField HorseAmount;
     public javax.swing.JTextField Intell;
-    public javax.swing.JTextField Intell2;
     public static javax.swing.JTextField IronAmount;
     public static javax.swing.JPanel ItemsPanel;
     public static javax.swing.JTextField LeatherAmount;
@@ -1504,13 +1582,14 @@ public class MainGUI extends javax.swing.JFrame {
     public javax.swing.JTextField Vitality;
     public static javax.swing.JTextField WoodAmount;
     public static javax.swing.JTextArea addonDisplay;
+    private javax.swing.JButton dexterityDown;
+    private javax.swing.JButton dexterityUp;
     public static javax.swing.JLabel headPic;
+    private javax.swing.JButton intellDown;
+    private javax.swing.JButton intellUp;
     public static javax.swing.JTextArea itemDisplay;
     public static javax.swing.JList itemList;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -1526,11 +1605,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
@@ -1602,16 +1676,22 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     public static javax.swing.JLabel lBootPic;
     public static javax.swing.JLabel lHandPic;
     public static javax.swing.JLabel leggingsPic;
     private javax.swing.JTextPane perkDescription;
+    public javax.swing.JTextField pointsRemaining;
     public static javax.swing.JLabel rBootPic;
     public static javax.swing.JLabel rHandPic;
     public javax.swing.JTextField skillsDexterity;
     public javax.swing.JTextField skillsIntelligence;
     public javax.swing.JTextField skillsStrength;
     public javax.swing.JTextField skillsVitality;
+    private javax.swing.JButton strengthDown;
+    private javax.swing.JButton strengthUp;
     public static javax.swing.JLabel torsoPic;
+    private javax.swing.JButton vitalityDown;
+    private javax.swing.JButton vitalityUp;
     // End of variables declaration//GEN-END:variables
 }
