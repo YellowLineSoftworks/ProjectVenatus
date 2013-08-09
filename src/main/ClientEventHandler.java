@@ -22,10 +22,11 @@ import worldobjects.Tile;
 
 
 public class ClientEventHandler {
-
+    
     public static MainGUI mgui;
     public static String[] arguments;
     
+    //Main Game Event Methods:
     public static void main(String[] args) {
         
         arguments = args;
