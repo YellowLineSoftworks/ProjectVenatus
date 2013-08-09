@@ -11,6 +11,10 @@ import java.awt.Image;
 import display.ImageRetriever;
 import items.Consumeable;
 import display.DisplayHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Player {
     public int maxhealth;
@@ -33,6 +37,9 @@ public class Player {
     public int level;
     public int experience;
     public int reqXP;
+    public int skillPoints;
+    
+    
     
     public final int reqXP_Level2 = 20;
     public final int reqXP_Level3 = 30;
@@ -44,6 +51,7 @@ public class Player {
     
     public String name;
     
+    public List<Skill> skill = new ArrayList();
     public List<Item> items = new ArrayList();
    
     public Shield right_hand_item;
@@ -116,6 +124,7 @@ public class Player {
     
     private void levelUp(){
         level++;
+        skillPoints+=3;
     }
     
     private void generatePerk(int level){
@@ -201,6 +210,74 @@ public class Player {
         items.add(i);
     }
     
+    //adds a skill to the skill list and invokes the method for said skill
+    public void addSkill(Skill s){
+        skill.add(s);
+        if(s.method!=null){
+            try {
+                s.method.invoke(this);
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+    
+    //adds a point to one of the atributes
+    public void addAttributePoint(String attribute){
+        if(skillPoints > 0){
+            skillPoints-=1;
+            switch(attribute){
+                case "s":
+                    strength++;
+                    break;
+                case "i":
+                    intelligence++;
+                    break;
+                case "v":
+                    vitality++;
+                    break;
+                case "d":
+                    dexterity++;
+                    break;  
+            }
+        }
+        DisplayHandler.displayStats();
+        
+    }
+    
+    //subtract a point to one of the atributes
+    public void subtractAttributePoint(String attribute){
+        
+        switch(attribute){
+            case "s":
+                if(strength>cclass.strength){
+                    strength--;
+                    skillPoints++;
+                 }
+                 break;
+            case "i":
+                 if(intelligence>cclass.intelligence){
+                    intelligence--;
+                    skillPoints++;
+                 }
+                 break;
+             case "v":
+                 if(vitality>cclass.vitality){
+                    vitality--;
+                    skillPoints++;
+                 }
+                 break;
+             case "d":
+                 if(dexterity>cclass.dexterity){
+                    dexterity--;
+                    skillPoints++;
+                 }
+                 break;  
+        }
+        DisplayHandler.displayStats();
+        
+    }
+    
     public enum Classes{
         MAGE(5,13,7,7),
         WARRIOR(13,5,7,7),
@@ -217,5 +294,30 @@ public class Player {
             vitality = v;
             dexterity = d;
         }
+    }
+    
+    public enum Skill{
+        HEALTH_REGENERATION("healthRegen");
+        
+        
+        Method method;
+        Method sMethod;
+        Skill(String methodName){
+            try {
+                method = Player.Skill.class.getMethod(methodName);
+                sMethod = Player.Skill.class.getMethod("s"+methodName);
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+            }
+        }
+        
+        void healthRegen(){
+            
+        }
+        void shealthRegen(){
+            
+        }
+        
+        
     }
 }
