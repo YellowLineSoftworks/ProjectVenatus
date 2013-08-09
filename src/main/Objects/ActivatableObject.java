@@ -24,7 +24,7 @@ public abstract class ActivatableObject extends GameObject{
     public void destroy(){
         activatableObjects.remove(this);
         Tile.currentTile.removeObject(this);
-        DisplayHandler.fb.removeImage(this.image);
+        DisplayHandler.disp.removeImage(this.image);
     }
     
 }

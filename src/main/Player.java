@@ -27,16 +27,17 @@ public class Player {
     public String playerName;
     
     public int strength;
-    public int intellegence;
+    public int intelligence;
     public int vitality;
     public int dexterity;
+    public int level;
+    public int experience;
     
     public Classes cclass;
     
     public String name;
     
     public List<Item> items = new ArrayList();
-    
    
     public Shield right_hand_item;
     public Weapon left_hand_item;
@@ -64,9 +65,11 @@ public class Player {
         test();
         
         strength = cla.strength;
-        intellegence = cla.intelegence;
+        intelligence = cla.intelligence;
         vitality = cla.vitality;
         dexterity = cla.dexterity;
+        level = 1;
+        experience = 1;
         
         maxhealth = 100;
         currenthealth = maxhealth;
@@ -160,13 +163,13 @@ public class Player {
         ROGUE(7,7,5,13);
         
         int strength;
-        int intelegence;
+        int intelligence;
         int vitality;
         int dexterity;
         
         Classes(int s, int i, int v, int d){
             strength =s;
-            intelegence = i;
+            intelligence = i;
             vitality = v;
             dexterity = d;
         }

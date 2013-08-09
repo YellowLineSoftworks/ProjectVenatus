@@ -16,6 +16,7 @@ import main.Player;
 import homestead.AddOn;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import main.ClientEventHandler;
 import worldobjects.Tile;
 
 
@@ -26,8 +27,8 @@ public class DisplayHandler {
     
     public static List<Item> currentItemListDisplay = new ArrayList();
     public static List<AddOn> currentAddonListDisplay = new ArrayList();
-    MainGUI gui = new MainGUI();
-    public static Display fb = new Display();
+    public static MainGUI mgui = ClientEventHandler.mgui;
+    public static Display disp = new Display();
     public static int charx = 200;
     public static int chary = 200;
     
@@ -47,7 +48,7 @@ public class DisplayHandler {
     public static Image weaponSprite;
     
     public static void initDisplay(){
-        fb.drawImage(Player.mainchar.imgup, charx, chary);
+        disp.drawImage(Player.mainchar.imgup, charx, chary);
         
         MainGUI.MainTabbedPane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("LEFT"), "none");
         MainGUI.MainTabbedPane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("RIGHT"), "none");
@@ -58,6 +59,14 @@ public class DisplayHandler {
         int delay = 1000;  //milliseconds
     }
     
+    public static void displayStats() {
+         mgui.Level.setText("" + Player.mainchar.level);
+         mgui.Dexterity.setText("" + Player.mainchar.dexterity);
+         mgui.Intell.setText("" + Player.mainchar.intelligence);
+         mgui.Vitality.setText("" + Player.mainchar.vitality);
+         mgui.Strength.setText("" + Player.mainchar.strength);
+    }
+    
     public static void moveCharacter(String direction){
         if(KeyListen.isAttacking){
             //displayWeapon(true);
@@ -65,57 +74,57 @@ public class DisplayHandler {
         if (!direction.equals(Player.mainchar.currentDirectionDupe)) {
         switch(Player.mainchar.currentDirectionDupe){
             case "up":
-                fb.removeImage(imgupID);
+                disp.removeImage(imgupID);
                 break;
             case "down":
-                fb.removeImage(imgdownID);
+                disp.removeImage(imgdownID);
                 break;
             case "right":
-                fb.removeImage(imgrightID);
+                disp.removeImage(imgrightID);
                 break;
            case "left":
-                fb.removeImage(imgleftID);
+                disp.removeImage(imgleftID);
                 break;
         }
         switch(direction){
             case "up":
                 Player.mainchar.currentDirectionDupe = "up";
                 chary -=1;
-                imgupID = fb.drawImage(Player.mainchar.imgup, charx, chary);
+                imgupID = disp.drawImage(Player.mainchar.imgup, charx, chary);
                 break;
             case "down":
                 Player.mainchar.currentDirectionDupe = "down";
                 chary +=1;
-                imgdownID = fb.drawImage(Player.mainchar.imgdown, charx, chary);
+                imgdownID = disp.drawImage(Player.mainchar.imgdown, charx, chary);
                 break;
             case "right":
                 Player.mainchar.currentDirectionDupe = "right";
                 charx+=1;
-                imgrightID = fb.drawImage(Player.mainchar.imgright, charx, chary);
+                imgrightID = disp.drawImage(Player.mainchar.imgright, charx, chary);
                 break;
            case "left":
                 Player.mainchar.currentDirectionDupe = "left";
                 charx-=1;
-                imgleftID = fb.drawImage(Player.mainchar.imgleft, charx, chary);
+                imgleftID = disp.drawImage(Player.mainchar.imgleft, charx, chary);
                 break;
         }
         } else {
             switch(direction){
                 case "up":
                     chary -=1;
-                    fb.moveImage(imgupID, charx, chary);
+                    disp.moveImage(imgupID, charx, chary);
                     break;
                 case "down":
                     chary +=1;
-                    fb.moveImage(imgdownID, charx, chary);
+                    disp.moveImage(imgdownID, charx, chary);
                     break;
                 case "right":
                     charx+=1;
-                    fb.moveImage(imgrightID, charx, chary);
+                    disp.moveImage(imgrightID, charx, chary);
                     break;
                case "left":
                     charx-=1;
-                    fb.moveImage(imgleftID, charx, chary);
+                    disp.moveImage(imgleftID, charx, chary);
                     break;
             }
         }
@@ -294,32 +303,32 @@ public class DisplayHandler {
     }
     /*public static void displayWeapon(boolean dis){
         if(dis){
-            if(fb.imageExists(weapUp)){
-                fb.removeImage(weapUp);
-            }else if(fb.imageExists(weapDown)){
-                fb.removeImage(weapDown);
-            }else if(fb.imageExists(weapLeft)){
-                fb.removeImage(weapLeft);
-            }else if(fb.imageExists(weapRight)){
-                fb.removeImage(weapRight);
+            if(disp.imageExists(weapUp)){
+                disp.removeImage(weapUp);
+            }else if(disp.imageExists(weapDown)){
+                disp.removeImage(weapDown);
+            }else if(disp.imageExists(weapLeft)){
+                disp.removeImage(weapLeft);
+            }else if(disp.imageExists(weapRight)){
+                disp.removeImage(weapRight);
             }
             switch(Player.mainchar.currentDirection){
                 case "up":
-                    fb.drawImage(weaponSprite, charx , chary- main.Player.mainchar.imgup.getHeight(null));
+                    disp.drawImage(weaponSprite, charx , chary- main.Player.mainchar.imgup.getHeight(null));
                     break;
                 case "down":
-                    fb.drawImage(weaponSprite, charx , chary+ main.Player.mainchar.imgup.getHeight(null));
+                    disp.drawImage(weaponSprite, charx , chary+ main.Player.mainchar.imgup.getHeight(null));
                     break;
                 case "right":
-                    fb.drawImage(weaponSprite, charx+ main.Player.mainchar.imgup.getWidth(null) , chary);
+                    disp.drawImage(weaponSprite, charx+ main.Player.mainchar.imgup.getWidth(null) , chary);
                     break;
                case "left":
-                    fb.drawImage(weaponSprite, charx- main.Player.mainchar.imgup.getWidth(null) , chary);
+                    disp.drawImage(weaponSprite, charx- main.Player.mainchar.imgup.getWidth(null) , chary);
                     break;
             }
         }else{
-            if(fb.imageExists(weaponSprite)){
-                fb.removeImage(weaponSprite);
+            if(disp.imageExists(weaponSprite)){
+                disp.removeImage(weaponSprite);
             }
         }
     }*/

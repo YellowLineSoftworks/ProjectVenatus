@@ -38,7 +38,7 @@ public abstract class AttackableObject extends GameObject {
     public void destroy(){
         attackableObjects.remove(this);
         Tile.currentTile.displayAllObjects();
-        DisplayHandler.fb.removeImage(this.image);
+        DisplayHandler.disp.removeImage(this.image);
     }
     public abstract void attacked();
 

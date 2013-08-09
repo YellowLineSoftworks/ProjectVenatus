@@ -999,13 +999,14 @@ public class MainGUI extends javax.swing.JFrame {
                     .addComponent(HorseAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(IronAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(OrdenadorAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12)
+                        .addComponent(IronAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel19)
+                        .addComponent(OrdenadorAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel27)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -1197,24 +1198,24 @@ public class MainGUI extends javax.swing.JFrame {
     public static javax.swing.JLabel Con2Pic;
     public static javax.swing.JLabel Con3Pic;
     public static javax.swing.JLabel Con4Pic;
-    private javax.swing.JTextField Dexterity;
+    public javax.swing.JTextField Dexterity;
     public static javax.swing.JTextField GoldAmount;
     public static javax.swing.JTextField HorseAmount;
-    private javax.swing.JTextField Intell;
+    public javax.swing.JTextField Intell;
     public static javax.swing.JTextField IronAmount;
     public static javax.swing.JPanel ItemsPanel;
     public static javax.swing.JTextField LeatherAmount;
-    private javax.swing.JTextField Level;
+    public javax.swing.JTextField Level;
     public static javax.swing.JPanel MainPanel;
     public static javax.swing.JTabbedPane MainTabbedPane;
     public static javax.swing.JTextField OrdenadorAmount;
     public static javax.swing.JTextField SilkAmount;
     public static javax.swing.JTextField StoneAmount;
-    private javax.swing.JTextField Strength;
+    public javax.swing.JTextField Strength;
     private javax.swing.JLabel Strengthlabel;
     private javax.swing.JButton UpgradeButton;
     public static javax.swing.JLabel UpgradeDisplayImage;
-    private javax.swing.JTextField Vitality;
+    public javax.swing.JTextField Vitality;
     public static javax.swing.JTextField WoodAmount;
     public static javax.swing.JTextArea addonDisplay;
     public static javax.swing.JLabel headPic;

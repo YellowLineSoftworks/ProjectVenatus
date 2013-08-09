@@ -31,7 +31,7 @@ public abstract class AddOn extends ActivatableObject{
      public String display(){return "";}
      
      public void printImg(){
-         Display fb=display.DisplayHandler.fb;
+         Display fb=display.DisplayHandler.disp;
          fb.drawImage(image, x, y);
      }
      

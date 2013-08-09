@@ -28,7 +28,7 @@ public abstract class GameObject {
     }
     
     public void displayObject() {
-        DisplayHandler.fb.drawImage(image, x, y);
+        DisplayHandler.disp.drawImage(image, x, y);
     }
     
     public abstract void destroy();

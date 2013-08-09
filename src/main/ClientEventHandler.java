@@ -41,6 +41,7 @@ public class ClientEventHandler {
         MainBase.mainbase = new MainBase();
         DisplayHandler.initDisplay(); 
         HeadsUpDisplay.initializeHUD();
+        DisplayHandler.displayStats();
         
         List<Item> items = new ArrayList();
         items.add(new Shield(Shield.Shld.WOOD_SHIELD));

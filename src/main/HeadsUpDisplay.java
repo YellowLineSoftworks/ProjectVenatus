@@ -38,7 +38,7 @@ public class HeadsUpDisplay {
                 }
                 b++;
             }
-            DisplayHandler.fb.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health/" + b + ".png"), 0, 431);
+            DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health/" + b + ".png"), 0, 431);
         }
         
         if (Player.mainchar.maxmana != 0) { 
@@ -70,7 +70,7 @@ public class HeadsUpDisplay {
                 }
                 b++;
             }
-            DisplayHandler.fb.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health/" + b + ".png"), 0, 431);
+            DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health/" + b + ".png"), 0, 431);
         }
 
     }

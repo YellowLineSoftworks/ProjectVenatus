@@ -98,7 +98,7 @@ public class MainBase extends ActivatableObject{
     }
     
     public void drawElements(){
-        display.DisplayHandler.fb.removeAllImages();
+        display.DisplayHandler.disp.removeAllImages();
         for(int i = 0; i<addons.size();i++){
             addons.get(i).printImg();
         }
