@@ -24,6 +24,7 @@ public class Player {
     public Image imgleft;
     public String currentDirection = "up";
     public String currentDirectionDupe = "up";
+    public String playerName;
     
     public int strength;
     public int intellegence;
@@ -52,7 +53,6 @@ public class Player {
     public Consumeable con4;
     
     public static Player mainchar;
-    
     
     public Player(String na, Classes cla){
         name = na;

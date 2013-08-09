@@ -6,6 +6,7 @@ package main;
 
 import display.gui.MainGUI;
 import display.DisplayHandler;
+import display.gui.NewGame;
 import homestead.MainBase;
 import items.Consumeable;
 import items.Item;
@@ -23,12 +24,20 @@ import worldobjects.Tile;
 public class ClientEventHandler {
 
     public static MainGUI mgui;
+    public static String[] arguments;
     
     public static void main(String[] args) {
         
+        arguments = args;
+        NewGame ngui = new NewGame();
+ 
+    }
+    
+    public static void secondaryMain() {
+        
         mgui = new MainGUI();
         mgui.setVisible(true);
-        Player.mainchar = new Player("Jesus", Player.Classes.MAGE);
+        Player.mainchar = new Player(NewGame.playerName, NewGame.playerClass);
         MainBase.mainbase = new MainBase();
         DisplayHandler.initDisplay(); 
         HeadsUpDisplay.initializeHUD();
@@ -43,9 +52,9 @@ public class ClientEventHandler {
         objects.add(pot);
         objects.add(c);
         
-        
         Tile mainTile = new Tile(0, 0, true, objects);
         mainTile.setCurrentTile();
+        
     }
     
 }
