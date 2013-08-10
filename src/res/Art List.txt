@@ -7,8 +7,6 @@ work bench
 chest open art
 chest closed art
 weapons sprites (sword sheild)
-warrior character sprites
-wooden shield
 textures for world
 	grassy
 	sandy
