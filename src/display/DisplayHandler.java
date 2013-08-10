@@ -32,10 +32,10 @@ public class DisplayHandler {
     public static int charx = 200;
     public static int chary = 200;
     
-    public static int imgupID = 0;
-    public static int imgdownID = 0;
-    public static int imgrightID = 0;
-    public static int imgleftID = 0;
+    public static int imgupID = -1;
+    public static int imgdownID = -1;
+    public static int imgrightID = -1;
+    public static int imgleftID = -1;
     
     public static int selectedConsumeableSlot = 1;
     
@@ -44,12 +44,12 @@ public class DisplayHandler {
     public static Image weapRight= new ImageRetriever().getImage("/res/Character Sprites/Weapon Sprites/Iron Sword Right.png");
     public static Image weapLeft= new ImageRetriever().getImage("/res/Character Sprites/Weapon Sprites/Iron Sword Left.png");
     
-    
     public static Image weaponSprite;
     
     public static void initDisplay(){
-        disp.drawImage(Player.mainchar.imgup, charx, chary);
-        
+        imgupID = disp.drawImage(Player.mainchar.imgup, charx, chary);
+        Player.mainchar.currentDirection = "up";
+        Player.mainchar.currentDirectionDupe = "up";
         MainGUI.MainTabbedPane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("LEFT"), "none");
         MainGUI.MainTabbedPane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("RIGHT"), "none");
         KeyListen keylistener = new KeyListen();
