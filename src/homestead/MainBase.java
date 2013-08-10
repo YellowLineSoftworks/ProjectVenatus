@@ -27,6 +27,7 @@ public class MainBase extends ActivatableObject{
     public Image baseImage1;
     public Image baseImage2;
     public Image baseImage3;
+    public Image baseImage4;
     
     public static MainBase mainbase;
     
@@ -37,12 +38,13 @@ public class MainBase extends ActivatableObject{
         this.x = 300;
         this.y = 300;
         currentsilk+=300;
-        currentwood+=200;
-        currentstone+=200;
+        currentwood+=2000;
+        currentstone+=2000;
         test();
         baseImage1 = new ImageRetriever().getImage("/res/Home Stead/level1 hut.png");
         baseImage2 = new ImageRetriever().getImage("/res/Home Stead/level2 hut.jpg");
         baseImage3 = new ImageRetriever().getImage("/res/Home Stead/level3 hut.jpg");
+        baseImage4 = new ImageRetriever().getImage("/res/Home Stead/level4 hut.png");
         image = baseImage1;
         init();
         
@@ -60,6 +62,8 @@ public class MainBase extends ActivatableObject{
                 if(currentwood >= 50&&currentstone>=50){
                     baseLevel++;
                     image = baseImage2;
+                    display.DisplayHandler.addonInfoPrinter();
+                    display.DisplayHandler.resourceInfoDisplayer();
                     return true;
                 }else{
                     return false;
@@ -68,6 +72,18 @@ public class MainBase extends ActivatableObject{
                 if(currentwood >= 100&&currentstone>=100){
                     baseLevel++;
                     image = baseImage3;
+                    display.DisplayHandler.addonInfoPrinter();
+                    display.DisplayHandler.resourceInfoDisplayer();
+                    return true;
+                }else{
+                    return false;
+                }
+            case 3:
+                if(currentwood >= 250&&currentstone>=250){
+                    baseLevel++;
+                    image = baseImage4;
+                    display.DisplayHandler.addonInfoPrinter();
+                    display.DisplayHandler.resourceInfoDisplayer();
                     return true;
                 }else{
                     return false;
@@ -86,13 +102,17 @@ public class MainBase extends ActivatableObject{
             case 2:
                 resCount = "100 wood and 100 stone";
                 break;
+            case 3:
+                resCount = "250 wood and 250 stone";
+                break;
             default:
-                return "\tHome Base\n\nLevel 3\n\nNo further upgrades are\n"
+                return "\tHome Base\n\nLevel 4\n\nNo further upgrades are\n"
                         + "available";
         }
                 
         return "\tHome Base\n\nLevel "+baseLevel+"\n\nYou need: \n" + resCount;
     }
+    
     void addAddon(AddOn a){
         addons.add(a);
     }

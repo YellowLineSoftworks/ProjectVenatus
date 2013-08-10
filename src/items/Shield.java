@@ -48,7 +48,7 @@ public class Shield extends Item{
     
     
     public enum Shld{
-        WOOD_SHIELD(15,100, new ImageIcon(new ImageRetriever().getImage("/res/Items/Shields/Wood Shield.jpg")));
+        WOOD_SHIELD(15,100, new ImageIcon(new ImageRetriever().getImage("/res/Items/Shields/Wooden Shield.png")));
         
         int durability;
         ImageIcon img;
