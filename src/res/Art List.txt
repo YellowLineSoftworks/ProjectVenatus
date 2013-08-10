@@ -5,7 +5,6 @@ High priority
 alchemy station
 work bench
 chest open art
-chest closed art
 weapons sprites (sword sheild)
 textures for world
 	grassy
