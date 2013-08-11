@@ -25,6 +25,7 @@ public class Bed extends AddOn{
     public void rest(){
         Player.mainchar.currenthealth = Player.mainchar.maxhealth;
         DisplayHandler.moveCharacter("right");
+        JOptionPane.showMessageDialog(ClientEventHandler.mgui,  "You have rested");
     }
     
     @Override
