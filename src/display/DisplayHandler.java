@@ -86,44 +86,41 @@ public class DisplayHandler {
         switch(direction){
             case "up":
                 Player.mainchar.currentDirectionDupe = "up";
-                chary -=1;
+                chary -=5;
                 imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
                 break;
             case "down":
                 Player.mainchar.currentDirectionDupe = "down";
-                chary +=1;
+                chary +=5;
                 imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
                 break;
             case "right":
                 Player.mainchar.currentDirectionDupe = "right";
-                charx+=1;
+                charx+=5;
                 imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
                 break;
            case "left":
                 Player.mainchar.currentDirectionDupe = "left";
-                charx-=1;
+                charx-=5;
                 imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
                 break;
         }
         } else {
             switch(direction){
                 case "up":
-                    chary -=1;
-                    disp.moveImage(imgid, charx, chary);
+                    chary -=5;
                     break;
                 case "down":
-                    chary +=1;
-                    disp.moveImage(imgid, charx, chary);
+                    chary +=5;
                     break;
                 case "right":
-                    charx+=1;
-                    disp.moveImage(imgid, charx, chary);
+                    charx+=5;
                     break;
                case "left":
-                    charx-=1;
-                    disp.moveImage(imgid, charx, chary);
+                    charx-=5;
                     break;
             }
+            disp.moveImage(imgid, charx, chary);
         }
     }
     

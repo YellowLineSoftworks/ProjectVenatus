@@ -176,6 +176,7 @@ class Mover implements Runnable {
     public void run() {
         while (KeyListen.isMoving) {
             DisplayHandler.moveCharacter(main.Player.mainchar.currentDirection);
+            try{Thread.sleep(30);}catch(Exception e) {System.err.println("Broke");}
             //DisplayHandler.displayWeapon(true);
         }
         KeyListen.move = new Thread(KeyListen.mover);
