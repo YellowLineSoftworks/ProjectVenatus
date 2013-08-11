@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import main.Objects.GameObject;
+import worldobjects.Bush;
 import worldobjects.Chest;
 import worldobjects.Pot;
 import worldobjects.Tile;
@@ -47,13 +48,15 @@ public class ClientEventHandler {
         List<Item> items = new ArrayList();
         items.add(new Shield(Shield.Shld.WOOD_SHIELD));
         Pot pot = new Pot(100, 100, items);
+        Bush bush = new Bush(200, 100, items);
         Chest c = new Chest(400, 100,new ArrayList(Arrays.asList(new Consumeable(Consumeable.Cnsm.POTION), new Weapon(Weapon.MagicWeap.FIRE_ROD))));
         
         List<GameObject> objects = new ArrayList();
         
         objects.add(pot);
         objects.add(c);
-        
+                
+        objects.add(bush);
         Tile mainTile = new Tile(0, 0, true, objects);
         mainTile.setCurrentTile();
         

@@ -40,6 +40,11 @@ public abstract class AttackableObject extends GameObject {
         Tile.currentTile.displayAllObjects();
         DisplayHandler.disp.removeImage(this.imageID);
     }
-    public abstract void attacked();
+    public void attacked(){
+        health -= calculateDamageTaken(armor);
+        if (health <= 0) {
+            destroy();
+        }
+    }
 
 }

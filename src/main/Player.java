@@ -127,9 +127,6 @@ public class Player {
         skillPoints+=3;
     }
     
-    private void generatePerk(int level){
-        
-    }
     
     public void test(){
         addXP(200);
