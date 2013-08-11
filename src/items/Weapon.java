@@ -76,9 +76,7 @@ public class Weapon extends Item{
     public enum Weap{
         GREAT_SWORD(7, 250, new ImageIcon(new ImageRetriever().getImage("/res/Items/Weapons/Iron Sword.jpg")), Type.SWORD,1),
         LONG_SWORD(7, 250, new ImageIcon(new ImageRetriever().getImage("/res/Items/Weapons/Iron Sword.jpg")), Type.SWORD,1),
-        SHORT_BOW(5, 300, new ImageIcon(new ImageRetriever().getImage("/res/Items/Weapons/Bow.jpg")), Type.BOW, 1);
-        
-        
+        SHORT_BOW(5, 300, new ImageIcon(new ImageRetriever().getImage("/res/Items/Weapons/Wooden Bow.png")), Type.BOW, 1);
         
         Type type;
         ImageIcon img;

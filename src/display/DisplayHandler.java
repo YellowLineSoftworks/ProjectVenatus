@@ -32,6 +32,7 @@ public class DisplayHandler {
     public static int charx = 200;
     public static int chary = 200;
     
+    public static int imgid = -1;
     public static int imgupID = -1;
     public static int imgdownID = -1;
     public static int imgrightID = -1;
@@ -47,7 +48,7 @@ public class DisplayHandler {
     public static Image weaponSprite;
     
     public static void initDisplay(){
-        imgupID = disp.drawImage(Player.mainchar.imgup, charx, chary);
+        imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
         Player.mainchar.currentDirection = "up";
         Player.mainchar.currentDirectionDupe = "up";
         MainGUI.MainTabbedPane.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke("LEFT"), "none");
@@ -81,59 +82,46 @@ public class DisplayHandler {
             //displayWeapon(true);
         }
         if (!direction.equals(Player.mainchar.currentDirectionDupe)) {
-        switch(Player.mainchar.currentDirectionDupe){
-            case "up":
-                disp.removeImage(imgupID);
-                break;
-            case "down":
-                disp.removeImage(imgdownID);
-                break;
-            case "right":
-                disp.removeImage(imgrightID);
-                break;
-           case "left":
-                disp.removeImage(imgleftID);
-                break;
-        }
+        disp.removeImage(imgid);
         switch(direction){
             case "up":
                 Player.mainchar.currentDirectionDupe = "up";
                 chary -=1;
-                imgupID = disp.drawImage(Player.mainchar.imgup, charx, chary);
+                imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
                 break;
             case "down":
                 Player.mainchar.currentDirectionDupe = "down";
                 chary +=1;
-                imgdownID = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
                 break;
             case "right":
                 Player.mainchar.currentDirectionDupe = "right";
                 charx+=1;
-                imgrightID = disp.drawImage(Player.mainchar.imgright, charx, chary);
+                imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
                 break;
            case "left":
                 Player.mainchar.currentDirectionDupe = "left";
                 charx-=1;
-                imgleftID = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
                 break;
         }
         } else {
             switch(direction){
                 case "up":
                     chary -=1;
-                    disp.moveImage(imgupID, charx, chary);
+                    disp.moveImage(imgid, charx, chary);
                     break;
                 case "down":
                     chary +=1;
-                    disp.moveImage(imgdownID, charx, chary);
+                    disp.moveImage(imgid, charx, chary);
                     break;
                 case "right":
                     charx+=1;
-                    disp.moveImage(imgrightID, charx, chary);
+                    disp.moveImage(imgid, charx, chary);
                     break;
                case "left":
                     charx-=1;
-                    disp.moveImage(imgleftID, charx, chary);
+                    disp.moveImage(imgid, charx, chary);
                     break;
             }
         }
@@ -342,12 +330,5 @@ public class DisplayHandler {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
     
 }

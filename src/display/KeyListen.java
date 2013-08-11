@@ -177,7 +177,6 @@ class Mover implements Runnable {
         while (KeyListen.isMoving) {
             DisplayHandler.moveCharacter(main.Player.mainchar.currentDirection);
             //DisplayHandler.displayWeapon(true);
-            try {Thread.sleep(5);}catch(Exception e) {}
         }
         KeyListen.move = new Thread(KeyListen.mover);
     }
