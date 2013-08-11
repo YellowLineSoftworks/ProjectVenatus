@@ -73,10 +73,10 @@ public class Player {
     public Player(String na, Classes cla){
         name = na;
         cclass = cla;
-        imgup = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Back.png");
-        imgdown = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Front.png");
-        imgright = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Right.png");
-        imgleft = new ImageRetriever().getImage("/res/Character Sprites/Tier3 Warrior Left.png");
+        imgup = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Back.png");
+        imgdown = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Front.png");
+        imgright = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Right.png");
+        imgleft = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Left.png");
 
         
         strength = cla.strength;
