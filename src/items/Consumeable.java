@@ -37,7 +37,7 @@ public class Consumeable extends Item{
     
     
     public enum Cnsm{
-        POTION("drinkPotion", new ImageIcon(new ImageRetriever().getImage("/res/Items/Consumeables/Potion.jpg")), new String[] {"10"});
+        POTION("drinkPotion", new ImageIcon(new ImageRetriever().getImage("/res/Items/Consumeables/Health Potion.png")), new String[] {"10"});
         
         ImageIcon img;
         
