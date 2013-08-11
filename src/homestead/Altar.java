@@ -19,6 +19,7 @@ public class Altar extends AddOn{
         setBelief(Belief.SECULARISM);
         addBelief(Belief.BROTHERHOOD_OF_THE_LEAF);
         addBelief(Belief.BLOOD_HORDE);
+        addBelief(Belief.FELLOWSHIP);
         x = 200;
         y = 200;
         init();
@@ -52,7 +53,9 @@ public class Altar extends AddOn{
                 + "Also unlocking certain granoly \nweapons and clothes"),
         BLOOD_HORDE("Blood Horde", new ImageRetriever().getImage("/res/Home Stead/Add Ons/BloodHorde Altar.png"),"Don't ask questions\nand you won't"
                 + "\nmysteriously fade from\nexiistence...."
-                + "\n\nUnlocks dark magic \nand allows dark enchantments");
+                + "\n\nUnlocks dark magic \nand allows dark enchantments"),
+        FELLOWSHIP("Fellowship", new ImageRetriever().getImage("/res/Home Stead/Add Ons/Fellowship Altar.png"),"One ring to rule them\nall... gives "
+                + "healing buffs\nand unlocks new weapons\nand clothes.");
         Image img;
 
         public Image getImg() {
