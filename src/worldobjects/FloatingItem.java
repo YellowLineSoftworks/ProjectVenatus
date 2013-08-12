@@ -1,5 +1,6 @@
 package worldobjects;
 
+import display.DisplayHandler;
 import items.Item;
 import main.Objects.ActivatableObject;
 

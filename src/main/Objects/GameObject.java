@@ -15,7 +15,6 @@ public abstract class GameObject {
     public Image image;
     public int imageID = -1;
     
-    
     public int miX;
     public int miY;
     public int maX;
@@ -29,6 +28,11 @@ public abstract class GameObject {
     }
     
     public void displayObject() {
+        imageID = DisplayHandler.disp.drawImage(image, x, y);
+    }
+    
+    public void redisplayObject() {
+        DisplayHandler.disp.removeImage(imageID);
         imageID = DisplayHandler.disp.drawImage(image, x, y);
     }
     
