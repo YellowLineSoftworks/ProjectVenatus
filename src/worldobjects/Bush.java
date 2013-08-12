@@ -46,7 +46,6 @@ public class Bush extends AttackableObject{
         for(int c = 0; c < items.size(); c++) {
             FloatingItem tempItem = new FloatingItem(x, y, items.get(c));
         }
-        DisplayHandler.disp.removeImage(imageID);
         super.destroy();
     }
     

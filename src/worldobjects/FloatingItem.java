@@ -23,7 +23,6 @@ public class FloatingItem extends ActivatableObject {
     @Override
     public void activate() {
         main.Player.mainchar.addItem(i);
-        DisplayHandler.disp.removeImage(imageID);
         super.destroy();
     }
     
