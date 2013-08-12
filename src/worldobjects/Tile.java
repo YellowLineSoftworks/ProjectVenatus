@@ -63,12 +63,11 @@ public class Tile {
     }
     
     public void displayAllObjects(){
-        
         for(int i = 0; i<objects.size(); i++){
-            objects.get(i).displayObject();
+            objects.get(i).redisplayObject();
         }
         if(isMain){
-            MainBase.mainbase.displayObject();
+            MainBase.mainbase.redisplayObject();
         }
     }
     

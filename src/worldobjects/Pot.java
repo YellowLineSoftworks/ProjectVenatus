@@ -1,5 +1,6 @@
 package worldobjects;
 
+import display.DisplayHandler;
 import display.ImageRetriever;
 import items.Item;
 import java.util.ArrayList;
@@ -32,8 +33,6 @@ public class Pot extends main.Objects.AttackableObject {
         this.items = items;
         init();
     }
-    
-    
     
     @Override
     public void destroy() {

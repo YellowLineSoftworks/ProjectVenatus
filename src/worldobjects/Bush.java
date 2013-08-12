@@ -4,6 +4,7 @@
  */
 package worldobjects;
 
+import display.DisplayHandler;
 import display.ImageRetriever;
 import items.Item;
 import java.util.ArrayList;

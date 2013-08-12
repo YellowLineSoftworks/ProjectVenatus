@@ -108,6 +108,7 @@ public class Display {
             if (images.get(x).id == id) {
                 images.remove(x);
                 removed = true;
+                refreshLayer1();
             }
         }
         if (!removed) {
@@ -127,6 +128,7 @@ public class Display {
             if (images.get(x).image == img) {
                 images.remove(x);
                 removed = true;
+                refreshLayer1();
             }
         }
         if (!removed) {
@@ -227,7 +229,6 @@ public class Display {
             SuperImage img = images.get(x);
             g.drawImage(img.image, img.dispx, img.dispy, img.dispx + img.endx - img.startx, img.dispy + img.endy - img.starty, img.startx, img.starty, img.endx, img.endy, null);
         }
-        updateIcon();
     }
     
     public boolean imageExists(Image img) {
