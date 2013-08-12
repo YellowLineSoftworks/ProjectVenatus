@@ -5,6 +5,7 @@
 package display;
 
 import display.gui.MainGUI;
+import static display.gui.MainGUI.mainBaseImageDisplay;
 import homestead.MainBase;
 import items.Item;
 import java.util.ArrayList;
@@ -177,6 +178,7 @@ public class DisplayHandler {
             MainGUI.addonListModel.addElement(MainBase.mainbase.addons.get(i).name);
             currentAddonListDisplay.add(MainBase.mainbase.addons.get(i));
         }
+        mainBaseImageDisplay.setIcon(new ImageIcon(MainBase.mainbase.image));
     }
     
     public static void displayAllInvinImages() {

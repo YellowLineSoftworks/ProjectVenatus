@@ -2,7 +2,7 @@
 
 package homestead;
 
-import display.AltarDisplaySlave;
+import display.displayslaves.AltarDisplaySlave;
 import display.ImageRetriever;
 import java.awt.Image;
 import java.util.ArrayList;

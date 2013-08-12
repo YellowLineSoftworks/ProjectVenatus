@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import main.Objects.GameObject;
 import display.Display;
+import main.Objects.ActivatableObject;
+import main.Objects.AttackableObject;
 
 
 public class Tile {
@@ -17,6 +19,9 @@ public class Tile {
     public HashMap location = new HashMap();
     public boolean isMain = false;
     public static Tile currentTile;
+    
+    public List<AttackableObject> attackableObjects = new ArrayList();
+    public List<ActivatableObject> activatableObjects = new ArrayList();
     
     public Tile(int xl, int yl){
         location.put("xCord", xl);
@@ -43,7 +48,14 @@ public class Tile {
     
     public void addObject(GameObject o){
         objects.add(o);
+        if(o instanceof AttackableObject){
+            attackableObjects.add((AttackableObject) o);
+        } else if(o instanceof ActivatableObject){
+            activatableObjects.add((ActivatableObject) o);
+        }
         this.displayAllObjects();
+        
+        
     }
     
     public void removeObject(GameObject o){

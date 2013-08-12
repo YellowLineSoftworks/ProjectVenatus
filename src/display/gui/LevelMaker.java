@@ -4,7 +4,7 @@
  */
 package display.gui;
 
-import display.LevelMakerDisplaySlave;
+import display.displayslaves.LevelMakerDisplaySlave;
 
 /**
  *

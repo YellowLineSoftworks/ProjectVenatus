@@ -5,7 +5,7 @@
 package display.gui;
 
 import javax.swing.DefaultListModel;
-import display.AltarDisplaySlave;
+import display.displayslaves.AltarDisplaySlave;
 
 /**
  *

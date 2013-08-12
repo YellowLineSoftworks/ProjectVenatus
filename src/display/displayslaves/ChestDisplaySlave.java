@@ -1,8 +1,9 @@
 
 
-package display;
+package display.displayslaves;
 
 
+import display.DisplayHandler;
 import display.gui.MainGUI;
 import display.gui.ChestGUI;
 import items.Item;

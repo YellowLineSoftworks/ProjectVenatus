@@ -4,7 +4,7 @@
  */
 package display.gui;
 
-import display.ChestDisplaySlave;
+import display.displayslaves.ChestDisplaySlave;
 import javax.swing.DefaultListModel;
 
 /**

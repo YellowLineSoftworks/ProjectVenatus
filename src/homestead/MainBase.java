@@ -40,7 +40,6 @@ public class MainBase extends ActivatableObject{
         currentsilk+=300;
         currentwood+=2000;
         currentstone+=2000;
-        test();
         baseImage1 = new ImageRetriever().getImage("/res/Home Stead/level1 hut.png");
         baseImage2 = new ImageRetriever().getImage("/res/Home Stead/level2 hut.jpg");
         baseImage3 = new ImageRetriever().getImage("/res/Home Stead/level3 hut.jpg");
@@ -126,6 +125,7 @@ public class MainBase extends ActivatableObject{
 
     @Override
     public void activate() {
+        test();
         drawElements();
     }
     

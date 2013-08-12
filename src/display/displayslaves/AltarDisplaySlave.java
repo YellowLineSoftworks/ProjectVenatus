@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package display;
+package display.displayslaves;
 
 import homestead.Altar;
 import java.util.ArrayList;

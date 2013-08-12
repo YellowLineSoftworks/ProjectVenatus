@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package display;
+package display.displayslaves;
 
 import display.gui.AddWorldObjectGUI;
 import display.gui.LevelMaker;

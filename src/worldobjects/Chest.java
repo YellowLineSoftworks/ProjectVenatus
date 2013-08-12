@@ -35,7 +35,7 @@ public class Chest extends ActivatableObject{
     
     @Override
     public void activate() {
-        display.ChestDisplaySlave.displayChestGUI(this);
+        display.displayslaves.ChestDisplaySlave.displayChestGUI(this);
     }
     
         
