@@ -26,6 +26,8 @@ public class ClientEventHandler {
     
     public static MainGUI mgui;
     public static String[] arguments;
+    public static Pot pot;
+    public static Bush bush;
     
     //Main Game Event Methods:
     public static void main(String[] args) {
@@ -47,8 +49,8 @@ public class ClientEventHandler {
         
         List<Item> items = new ArrayList();
         items.add(new Shield(Shield.Shld.WOOD_SHIELD));
-        Pot pot = new Pot(100, 100, items);
-        Bush bush = new Bush(200, 100, items);
+        pot = new Pot(100, 100, items);
+        bush = new Bush(200, 100, items);
         Chest c = new Chest(400, 100,new ArrayList(Arrays.asList(new Consumeable(Consumeable.Cnsm.POTION), new Weapon(Weapon.MagicWeap.FIRE_ROD))));
         
         List<GameObject> objects = new ArrayList();

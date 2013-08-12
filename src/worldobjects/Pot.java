@@ -1,5 +1,6 @@
 package worldobjects;
 
+import display.DisplayHandler;
 import display.ImageRetriever;
 import items.Item;
 import java.util.ArrayList;
@@ -33,14 +34,13 @@ public class Pot extends main.Objects.AttackableObject {
         init();
     }
     
-    
-    
     @Override
     public void destroy() {
         //Replace the pot with a reward to the player, but only sometimes.
         for(int c = 0; c < items.size(); c++) {
             FloatingItem tempItem = new FloatingItem(x, y, items.get(c));
         }
+        DisplayHandler.disp.removeImage(imageID);
         super.destroy();
     }
     

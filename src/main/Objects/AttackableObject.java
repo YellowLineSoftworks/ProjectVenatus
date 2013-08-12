@@ -19,9 +19,6 @@ public abstract class AttackableObject extends GameObject {
     public int health;
     public int armor;
     
-    
-    
-    
     public int calculateDamageTaken(int armor) {
         
         //To Do: Implement a function here to calculate damage dealt based on the player's wielded items and their strength, etc.
@@ -37,9 +34,10 @@ public abstract class AttackableObject extends GameObject {
     @Override
     public void destroy(){
         attackableObjects.remove(this);
+        Tile.currentTile.objects.remove(this);
         Tile.currentTile.displayAllObjects();
-        DisplayHandler.disp.removeImage(this.imageID);
     }
+    
     public void attacked(){
         health -= calculateDamageTaken(armor);
         if (health <= 0) {
