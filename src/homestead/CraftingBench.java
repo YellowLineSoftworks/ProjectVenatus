@@ -20,6 +20,7 @@ public class CraftingBench extends AddOn{
     public static Image tier1Img = new ImageRetriever().getImage("/res/Home Stead/Add Ons/Alchemy Station.png");
     
     public CraftingBench(){
+        name = "Crafting Bench";
         x = 500;
         y = 200;
         image = tier1Img;

@@ -32,9 +32,9 @@ public class ClientEventHandler {
     //Main Game Event Methods:
     public static void main(String[] args) {
         
-        //arguments = args;
-        //NewGame ngui = new NewGame();
-        secondaryMain();
+        arguments = args;
+        NewGame ngui = new NewGame();
+        //secondaryMain();
     }
     
     public static void secondaryMain() {

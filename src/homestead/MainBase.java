@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -62,6 +62,8 @@ public class MainBase extends ActivatableObject{
                 if(currentwood >= 50&&currentstone>=50){
                     baseLevel++;
                     image = baseImage2;
+                    currentwood-=50;
+                    currentstone-=50;
                     display.DisplayHandler.addonInfoPrinter();
                     display.DisplayHandler.resourceInfoDisplayer();
                     return true;
@@ -72,6 +74,8 @@ public class MainBase extends ActivatableObject{
                 if(currentwood >= 100&&currentstone>=100){
                     baseLevel++;
                     image = baseImage3;
+                    currentwood-=100;
+                    currentstone-=100;
                     display.DisplayHandler.addonInfoPrinter();
                     display.DisplayHandler.resourceInfoDisplayer();
                     return true;
@@ -82,6 +86,8 @@ public class MainBase extends ActivatableObject{
                 if(currentwood >= 250&&currentstone>=250){
                     baseLevel++;
                     image = baseImage4;
+                    currentwood-=250;
+                    currentstone-=250;
                     display.DisplayHandler.addonInfoPrinter();
                     display.DisplayHandler.resourceInfoDisplayer();
                     return true;

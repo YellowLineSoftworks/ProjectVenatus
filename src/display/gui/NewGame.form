@@ -164,7 +164,7 @@
     <Component class="javax.swing.JToggleButton" name="jToggleButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/res/Character Sprites/Tier3 Warrior Front.png"/>
+          <Image iconType="3" name="/res/Character Sprites/Warrior/Tier3 Warrior Front.png"/>
         </Property>
       </Properties>
       <Events>
@@ -180,7 +180,7 @@
     <Component class="javax.swing.JToggleButton" name="jToggleButton2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/res/Character Sprites/Tier3 Mage Front.png"/>
+          <Image iconType="3" name="/res/Character Sprites/Mage/Tier3 Mage Front.png"/>
         </Property>
       </Properties>
       <Events>
@@ -196,7 +196,7 @@
     <Component class="javax.swing.JToggleButton" name="jToggleButton3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/res/World Objects/Pot.png"/>
+          <Image iconType="3" name="/res/Character Sprites/Rouge/Tier3 Rouge Front.png"/>
         </Property>
       </Properties>
       <Events>

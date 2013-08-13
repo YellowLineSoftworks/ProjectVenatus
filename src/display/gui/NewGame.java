@@ -81,7 +81,7 @@ public class NewGame extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Character Sprites/Tier3 Warrior Front.png"))); // NOI18N
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Character Sprites/Warrior/Tier3 Warrior Front.png"))); // NOI18N
         jToggleButton1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jToggleButton1StateChanged(evt);
@@ -95,7 +95,7 @@ public class NewGame extends javax.swing.JFrame {
 
         jLabel1.setText("Warrior");
 
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Character Sprites/Tier3 Mage Front.png"))); // NOI18N
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Character Sprites/Mage/Tier3 Mage Front.png"))); // NOI18N
         jToggleButton2.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jToggleButton2StateChanged(evt);
@@ -109,7 +109,7 @@ public class NewGame extends javax.swing.JFrame {
 
         jLabel2.setText("Mage");
 
-        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/World Objects/Pot.png"))); // NOI18N
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Character Sprites/Rouge/Tier3 Rouge Front.png"))); // NOI18N
         jToggleButton3.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jToggleButton3StateChanged(evt);

@@ -74,10 +74,27 @@ public class Player {
     public Player(String na, Classes cla){
         name = na;
         cclass = cla;
-        imgup = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Back.png");
-        imgdown = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Front.png");
-        imgright = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Right.png");
-        imgleft = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Left.png");
+        switch(cclass){
+            case WARRIOR:
+                imgup = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Back.png");
+                imgdown = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Front.png");
+                imgright = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Right.png");
+                imgleft = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Left.png");
+                break;
+            case MAGE:
+                imgup = new ImageRetriever().getImage("/res/Character Sprites/Mage/Tier1 Mage Back.png");
+                imgdown = new ImageRetriever().getImage("/res/Character Sprites/Mage/Tier1 Mage Front.png");
+                imgright = new ImageRetriever().getImage("/res/Character Sprites/Mage/Tier1 Mage Right.png");
+                imgleft = new ImageRetriever().getImage("/res/Character Sprites/Mage/Tier1 Mage Left.png");
+                break;
+            case ROGUE:
+                imgup = new ImageRetriever().getImage("/res/Character Sprites/Rouge/Tier1 Rouge Back.png");
+                imgdown = new ImageRetriever().getImage("/res/Character Sprites/Rouge/Tier1 Rouge Front.png");
+                imgright = new ImageRetriever().getImage("/res/Character Sprites/Rouge/Tier1 Rouge Right.png");
+                imgleft = new ImageRetriever().getImage("/res/Character Sprites/Rouge/Tier1 Rouge Left.png");
+                break;
+                
+        }
 
         
         strength = cla.strength;
