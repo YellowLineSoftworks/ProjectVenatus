@@ -52,6 +52,7 @@ public class MainBase extends ActivatableObject{
     void test(){
         addAddon(new Bed());
         addAddon(new Altar());
+        addAddon(new CraftingBench());
         int a = 1;
     }
     

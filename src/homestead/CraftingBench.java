@@ -9,6 +9,7 @@ import display.displayslaves.CraftingDisplaySlave;
 import items.CraftingItem;
 import items.Item;
 import items.Shield;
+import items.Weapon;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,22 +17,19 @@ import java.util.List;
 
 public class CraftingBench extends AddOn{
     
-    public static Image tier1Img = new ImageRetriever().getImage("/res/Home Stead/Add Ons/Alchemy Station");
+    public static Image tier1Img = new ImageRetriever().getImage("/res/Home Stead/Add Ons/Alchemy Station.png");
     
-    public CraftingBench(int x, int y){
-        this.x = x;
-        this.y = y;
+    public CraftingBench(){
+        x = 500;
+        y = 200;
         image = tier1Img;
+        init();
     }
     
-    //@Override
-    /*public boolean upgrade(){
-        switch(upgradelvl){
-            case 1:
-                
-                break;
-        }
-    }*/
+    @Override
+    public boolean upgrade(){
+        return false;
+    }
 
     @Override
     public void activate() {
@@ -43,11 +41,11 @@ public class CraftingBench extends AddOn{
     
     
     public enum Recipe{
-        WOODEN_SHEILD(Arrays.asList(CraftingItem.CraftItem.WOOD), new Shield(Shield.Shld.WOOD_SHIELD));
+        WOODEN_SHEILD(Arrays.asList((Item)new CraftingItem(CraftingItem.CraftItem.WOOD)), new Shield(Shield.Shld.WOOD_SHIELD));
         
-        List<CraftingItem.CraftItem> reqItems;
+        List<Item> reqItems;
         Item returnItem;
-        Recipe(List<CraftingItem.CraftItem> l, Item ri){
+        Recipe(List<Item> l, Item ri){
             reqItems = l;
         }
     }

@@ -18,9 +18,10 @@ public class CraftingItem extends Item{
     public CraftingItem(CraftItem ci){
          img =ci.img;
          name = ci.name().toLowerCase().replace("_", " ");
+         itemtype = Item.Type.CRAFT;
     }
     public enum CraftItem{
-        WOOD(new ImageIcon(new ImageRetriever().getImage("/res/Items/Character Sprites/Weapon Sprites/Wooden Shield Sprite.png")));
+        WOOD(new ImageIcon(new ImageRetriever().getImage("/res/Character Sprites/Weapon Sprites/Wooden Shield Sprite.png")));
         ImageIcon img;
         CraftItem(ImageIcon i){
             img = i;
