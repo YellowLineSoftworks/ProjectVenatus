@@ -15,11 +15,12 @@ import items.Weapon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Objects.GameObject;
 import worldobjects.Bush;
 import worldobjects.Chest;
 import worldobjects.Pot;
-import worldobjects.Tile;
 
 
 public class ClientEventHandler {
@@ -54,14 +55,17 @@ public class ClientEventHandler {
         Chest c = new Chest(400, 100,new ArrayList(Arrays.asList(new Consumeable(Consumeable.Cnsm.POTION), new Weapon(Weapon.MagicWeap.FIRE_ROD))));
         
         List<GameObject> objects = new ArrayList();
+        List<GameObject> objects2 = new ArrayList();
+        objects2.add(new Bush(300, 100));
         
+        Tile sTile = new Tile(0, 1, objects2);
+//        
         objects.add(pot);
         objects.add(c);
-                
         objects.add(bush);
         Tile mainTile = new Tile(0, 0, true, objects);
         mainTile.setCurrentTile();
-        
+        //Tile.setCurrentTile("up");
     }
     
 }

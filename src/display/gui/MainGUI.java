@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import main.ClientEventHandler;
 import main.Player;
-import worldobjects.Tile;
+import main.Tile;
 
 /**
  *

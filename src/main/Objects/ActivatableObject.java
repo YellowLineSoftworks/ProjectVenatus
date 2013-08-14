@@ -5,7 +5,7 @@ import display.DisplayHandler;
 import java.util.ArrayList;
 import java.util.List;
 import main.Objects.GameObject;
-import worldobjects.Tile;
+import main.Tile;
 
 
 public abstract class ActivatableObject extends GameObject{

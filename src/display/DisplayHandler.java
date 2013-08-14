@@ -18,7 +18,7 @@ import homestead.AddOn;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import main.ClientEventHandler;
-import worldobjects.Tile;
+import main.Tile;
 
 
 

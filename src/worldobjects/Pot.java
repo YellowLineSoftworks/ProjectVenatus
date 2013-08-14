@@ -6,7 +6,7 @@ import items.Item;
 import java.util.ArrayList;
 import java.util.List;
 import main.Objects.AttackableObject;
-import worldobjects.Tile;
+import main.Tile;
 
 /**
  * @author Xenith

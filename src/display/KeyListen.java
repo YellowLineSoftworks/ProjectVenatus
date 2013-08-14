@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import main.Objects.AttackableObject;
 import main.Player;
 import main.Macro;
+import main.Tile;
 
 
 public class KeyListen implements java.awt.event.KeyListener {
@@ -79,13 +80,17 @@ public class KeyListen implements java.awt.event.KeyListener {
             int maY = DisplayHandler.chary +Player.mainchar.imgup.getHeight(null);
             int miX = DisplayHandler.charx;
             int miY = DisplayHandler.chary;
-            for(int i = 0; i<ActivatableObject.activatableObjects.size(); i++){
-                ActivatableObject obj = ActivatableObject.activatableObjects.get(i);
-                
-                Point center = Macro.center(maX, miX, maY, miY);
-                if(Macro.within(center.x, obj.maX, obj.miX) && Macro.within(center.y, obj.maY, obj.miY)){
-                    obj.activate();
+            for(int i = 0; i<Tile.currentTile.objects.size(); i++){
+                if(Tile.currentTile.objects.get(i) instanceof ActivatableObject){
+                    ActivatableObject obj = (ActivatableObject)Tile.currentTile.objects.get(i);
+                    
+                    Point center = Macro.center(maX, miX, maY, miY);
+                    if(Macro.within(center.x, obj.maX, obj.miX) && Macro.within(center.y, obj.maY, obj.miY)){
+                        obj.activate();
+                    }
                 }
+                
+                    
             }
         }
         if(keyCode == KeyEvent.VK_A){

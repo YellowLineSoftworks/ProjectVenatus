@@ -8,7 +8,7 @@ package main.Objects;
 import display.DisplayHandler;
 import java.util.ArrayList;
 import java.util.List;
-import worldobjects.Tile;
+import main.Tile;
 
 /**
  * @author Xenith
