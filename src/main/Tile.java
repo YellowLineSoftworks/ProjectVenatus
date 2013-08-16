@@ -9,20 +9,26 @@ import java.util.HashMap;
 import java.util.List;
 import main.Objects.GameObject;
 import display.Display;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Objects.ActivatableObject;
 import main.Objects.AttackableObject;
 
 
-public class Tile {
+public class Tile implements Serializable{
     
     public List<GameObject> objects = new ArrayList();
     public HashMap location = new HashMap();
     public boolean isMain = false;
     public static Tile currentTile;
     public static List<Tile> allTiles = new ArrayList();
-    
-    public List<AttackableObject> attackableObjects = new ArrayList();
-    public List<ActivatableObject> activatableObjects = new ArrayList();
     
     public Tile(int xl, int yl){
         location.put("xCord", xl);
@@ -53,16 +59,13 @@ public class Tile {
         objects.add(MainBase.mainbase);
     }
     
+    public Tile(){
+        
+    }
+    
     public void addObject(GameObject o){
         objects.add(o);
-        if(o instanceof AttackableObject){
-            attackableObjects.add((AttackableObject) o);
-        } else if(o instanceof ActivatableObject){
-            activatableObjects.add((ActivatableObject) o);
-        }
         this.displayAllObjects();
-        
-        
     }
     
     public void removeObject(GameObject o){
@@ -115,5 +118,49 @@ public class Tile {
         return false;
     }
     
+    public static boolean setCurrentTile(int x, int y){
+        HashMap hm = new HashMap();
+        hm.put("xCord", x);
+        hm.put("yCord", y);
+        for(int i=0;i<allTiles.size();i++){
+            if(allTiles.get(i).location.equals(hm)){
+                allTiles.get(i).setCurrentTile();
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean serialize(){
+        try {
+            FileOutputStream fileout = new FileOutputStream("C:\\Users\\Austin\\Documents\\GitHub\\ProjectVenatus\\src\\main\\Tiles\\tile"+location.get("xCord")+location.get("yCord")+".ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileout);
+            out.writeObject(this);
+            out.close();
+            fileout.close();
+            return true;
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+    
+    public static Tile deSerialize(int x, int y){
+        
+        try {
+            FileInputStream fileIn = new FileInputStream("C:\\Users\\Austin\\Documents\\GitHub\\ProjectVenatus\\src\\main\\Tiles\\tile"+x+y+".ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Tile t = (Tile) in.readObject();
+            in.close();
+            fileIn.close();
+            return t;
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
     
 }

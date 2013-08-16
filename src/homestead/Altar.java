@@ -54,7 +54,7 @@ public class Altar extends AddOn{
         BLOOD_HORDE("Blood Horde", new ImageRetriever().getImage("/res/Home Stead/Add Ons/BloodHorde Altar.png"),"Don't ask questions\nand you won't"
                 + "\nmysteriously fade from\nexiistence...."
                 + "\n\nUnlocks dark magic \nand allows dark enchantments"),
-        FELLOWSHIP("Fellowship", new ImageRetriever().getImage("/res/Home Stead/Add Ons/Fellowship Altar.png"),"One ring to rule them\nall... gives "
+        FELLOWSHIP("Fellowship", new ImageRetriever().getImage("/res/Home Stead/Add Ons/Fellowship Altar.png"),"This is the light\nat the end of\nthe tunell... gives "
                 + "healing buffs\nand unlocks new weapons\nand clothes.");
         Image img;
 

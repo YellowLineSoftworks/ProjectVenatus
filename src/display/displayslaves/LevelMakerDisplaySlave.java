@@ -12,6 +12,7 @@ import java.util.List;
 import main.Objects.ActivatableObject;
 import main.Objects.AttackableObject;
 import main.Objects.GameObject;
+import main.Tile;
 import worldobjects.Bush;
 import worldobjects.Enemies.Enemy;
 import worldobjects.Pot;
@@ -25,15 +26,20 @@ public class LevelMakerDisplaySlave {
     public static List<Class> attackableObjects = new ArrayList();
     public static List<Class> activatableObjects = new ArrayList();
     
+    public static Tile tile;
+    
     
     public static void main(String[] args){
-        initLevelMaker();
+        makeLists();
+        addWorldObject();
+        tile = new Tile(1, 0);
     }
     
     public static void initLevelMaker(){
         cgui = new LevelMaker();
         cgui.setVisible(true);
         makeLists();
+        tile = new Tile(1, 0);
     }
     
     public static void makeLists(){
@@ -47,6 +53,7 @@ public class LevelMakerDisplaySlave {
     
     public static void addWorldObject() {
         worldObjectGUI = new AddWorldObjectGUI();
+        worldObjectGUI.setVisible(true);
         displayFList();
     }
     
@@ -58,12 +65,31 @@ public class LevelMakerDisplaySlave {
     }
     
     public static void displaySList(){
-        if(worldObjectGUI.sList.getSelectedIndex()==0){
-            
-        }else if(worldObjectGUI.sList.getSelectedIndex()==1){
+        worldObjectGUI.sListModel.clear();
+        if(worldObjectGUI.fList.getSelectedIndex()==0){
+            for(int i= 0; i<attackableObjects.size(); i++){
+                worldObjectGUI.sListModel.addElement(attackableObjects.get(i).getSimpleName());
+            }
+        }else if(worldObjectGUI.fList.getSelectedIndex()==1){
             
         }
-    }    
-    
+    }
+    public static void addObject(){
+        switch(worldObjectGUI.sList.getSelectedIndex()){
+            case 0:
+                //Create Enemy
+                break;
+            case 1:
+                tile.addObject(new Bush(Integer.parseInt(worldObjectGUI.xTextField.getText()), 
+                        Integer.parseInt(worldObjectGUI.yTextField.getText())));
+                System.out.println(1);
+                break;
+            case 2:
+                tile.addObject(new Pot(Integer.parseInt(worldObjectGUI.xTextField.getText()), 
+                        Integer.parseInt(worldObjectGUI.yTextField.getText())));
+                break;
+                
+        }
+    }
     
 }

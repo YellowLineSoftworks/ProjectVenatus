@@ -11,6 +11,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import main.Objects.ActivatableObject;
+import main.Tile;
 
 
 
@@ -32,7 +33,10 @@ public class MainBase extends ActivatableObject{
     public static MainBase mainbase;
     
     public List<AddOn> addons = new ArrayList();
+    public Tile baseTile = new Tile();
     int defence;
+    
+    public boolean inBase = false;
     
     public MainBase(){
         this.x = 300;
@@ -46,7 +50,7 @@ public class MainBase extends ActivatableObject{
         baseImage4 = new ImageRetriever().getImage("/res/Home Stead/level4 hut.png");
         image = baseImage1;
         init();
-        
+        test();
     }
     
     void test(){
@@ -121,6 +125,7 @@ public class MainBase extends ActivatableObject{
     
     void addAddon(AddOn a){
         addons.add(a);
+        baseTile.addObject(a);
     }
     
     public void drawElements(){
@@ -129,11 +134,21 @@ public class MainBase extends ActivatableObject{
             addons.get(i).printImg();
         }
     }
+    
+    public void enterBase(){
+        inBase = true;
+        baseTile.setCurrentTile();
+    }
+    
+    
+    public void exitBase(){
+        inBase = false;
+        Tile.setCurrentTile(0,0);
+    }
 
     @Override
     public void activate() {
-        test();
-        drawElements();
+        enterBase();
     }
     
     @Override
