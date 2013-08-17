@@ -6,8 +6,9 @@ package homestead;
 
 import display.ImageRetriever;
 import display.displayslaves.CraftingDisplaySlave;
-import items.CraftingItem;
+import items.ResourceItem;
 import items.Item;
+import items.ResourceItem.ResItem;
 import items.Shield;
 import items.Weapon;
 import java.awt.Image;
@@ -42,12 +43,13 @@ public class CraftingBench extends AddOn{
     
     
     public enum Recipe{
-        WOODEN_SHEILD(Arrays.asList((Item)new CraftingItem(CraftingItem.CraftItem.WOOD)), new Shield(Shield.Shld.WOOD_SHIELD));
+        WOODEN_SHEILD(new Item[] {(Item)new ResourceItem(ResourceItem.ResItem.WOOD),null,null}, new Shield(Shield.Shld.WOOD_SHIELD));
         
-        List<Item> reqItems;
-        Item returnItem;
-        Recipe(List<Item> l, Item ri){
+        public Item[] reqItems;
+        public Item returnItem;
+        Recipe(Item[] l, Item ri){
             reqItems = l;
+            returnItem = ri;
         }
     }
     

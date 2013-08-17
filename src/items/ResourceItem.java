@@ -13,17 +13,17 @@ import javax.swing.ImageIcon;
  *
  * @author Austin
  */
-public class CraftingItem extends Item{
+public class ResourceItem extends Item{
     
-    public CraftingItem(CraftItem ci){
+    public ResourceItem(ResItem ci){
          img =ci.img;
          name = ci.name().toLowerCase().replace("_", " ");
-         itemtype = Item.Type.CRAFT;
+         itemtype = Item.Type.RESOURCE;
     }
-    public enum CraftItem{
+    public enum ResItem{
         WOOD(new ImageIcon(new ImageRetriever().getImage("/res/Character Sprites/Weapon Sprites/Wooden Shield Sprite.png")));
         ImageIcon img;
-        CraftItem(ImageIcon i){
+        ResItem(ImageIcon i){
             img = i;
         }
     }
