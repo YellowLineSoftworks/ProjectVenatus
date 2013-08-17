@@ -27,6 +27,7 @@ public class Tile implements Serializable{
     public List<GameObject> objects = new ArrayList();
     public HashMap location = new HashMap();
     public boolean isMain = false;
+    public boolean isDev = false;
     public static Tile currentTile;
     public static List<Tile> allTiles = new ArrayList();
     
@@ -79,6 +80,8 @@ public class Tile implements Serializable{
         if(isMain){
             MainBase.mainbase.redisplayObject();
         }
+        
+            
     }
     
     public void setCurrentTile(){

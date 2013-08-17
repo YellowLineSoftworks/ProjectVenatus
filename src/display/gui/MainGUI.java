@@ -936,6 +936,11 @@ public class MainGUI extends javax.swing.JFrame {
         );
 
         mainBaseImageDisplay.setBackground(new java.awt.Color(204, 204, 204));
+        mainBaseImageDisplay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mainBaseImageDisplayMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1534,6 +1539,10 @@ public class MainGUI extends javax.swing.JFrame {
     private void dexterityDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dexterityDownMouseClicked
         Player.mainchar.subtractAttributePoint("d");
     }//GEN-LAST:event_dexterityDownMouseClicked
+
+    private void mainBaseImageDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mainBaseImageDisplayMouseClicked
+        AddOnList.setSelectedIndex(0);
+    }//GEN-LAST:event_mainBaseImageDisplayMouseClicked
 
     /**
      * @param args the command line arguments

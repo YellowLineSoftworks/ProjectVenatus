@@ -26,6 +26,7 @@ public class Display {
     private List<SuperImage> images = new ArrayList<>();
     private List<SuperImage> movableimages = new ArrayList<>();
     private int[] movableImagesIDs = {};
+    public boolean isDev = false;
     
     public Display() {
         imageMerge = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
@@ -41,7 +42,11 @@ public class Display {
     private void updateIcon() {
         imageMergeGraphics.drawImage(image, 0, 0, null);
         imageMergeGraphics.drawImage(layer2, 0, 0, null);
-        MainGUI.jLabel9.setIcon(new ImageIcon(imageMerge));
+        if(!isDev){
+            MainGUI.jLabel9.setIcon(new ImageIcon(imageMerge));
+        }else{
+            display.gui.LevelMaker.MainLabel.setIcon(new ImageIcon(imageMerge));
+        }
     }
     
     public int drawImage(Image i, int x, int y) {

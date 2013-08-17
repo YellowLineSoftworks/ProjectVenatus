@@ -45,7 +45,7 @@ public class ClientEventHandler {
         Player.mainchar = new Player(NewGame.playerName, NewGame.playerClass);
         MainBase.mainbase = new MainBase();
         DisplayHandler.initDisplay(); 
-        HeadsUpDisplay.initializeHUD();
+        //HeadsUpDisplay.initializeHUD();
         DisplayHandler.displayStats();
         
         List<Item> items = new ArrayList();

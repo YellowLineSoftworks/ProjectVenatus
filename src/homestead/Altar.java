@@ -75,11 +75,5 @@ public class Altar extends AddOn{
             img = i;
             this.name = name;
         }
-        
-        
-        
-        
-        
-        
     }
 }
