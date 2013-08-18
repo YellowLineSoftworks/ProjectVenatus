@@ -10,6 +10,7 @@ import items.Item;
 import java.util.ArrayList;
 import java.util.List;
 import main.Objects.AttackableObject;
+import main.Player;
 
 /**
  *
@@ -45,6 +46,7 @@ public class Bush extends AttackableObject{
         //Replace the bush with a reward to the player, but only sometimes.
         for(int c = 0; c < items.size(); c++) {
             FloatingItem tempItem = new FloatingItem(x, y, items.get(c));
+            Player.mainchar.addXP(5);
         }
         super.destroy();
     }

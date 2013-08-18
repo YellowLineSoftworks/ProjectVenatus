@@ -6,6 +6,7 @@ package main;
 
 import display.gui.MainGUI;
 import display.DisplayHandler;
+import display.ImageRetriever;
 import display.gui.NewGame;
 import homestead.MainBase;
 import items.Consumeable;
@@ -44,10 +45,9 @@ public class ClientEventHandler {
         mgui.setVisible(true);
         Player.mainchar = new Player(NewGame.playerName, NewGame.playerClass);
         MainBase.mainbase = new MainBase();
-        DisplayHandler.initDisplay(); 
-        //HeadsUpDisplay.initializeHUD();
+        DisplayHandler.initDisplay();
+        HeadsUpDisplay.initializeHUD();
         DisplayHandler.displayStats();
-        
         List<Item> items = new ArrayList();
         items.add(new Shield(Shield.Shld.WOOD_SHIELD));
         pot = new Pot(100, 100, items);
@@ -59,13 +59,19 @@ public class ClientEventHandler {
         objects2.add(new Bush(300, 100));
         
         Tile sTile = new Tile(0, 1, objects2);
-//        
+        
         objects.add(pot);
         objects.add(c);
         objects.add(bush);
         Tile mainTile = new Tile(0, 0, true, objects);
         mainTile.setCurrentTile();
         //Tile.setCurrentTile("up");
+        
+        //Test the HUD. Replace those values to satisfaction.
+        Player.mainchar.currentmana-=40;
+        Player.mainchar.currenthealth-=75;
+        HeadsUpDisplay.update();
+        
     }
     
 }

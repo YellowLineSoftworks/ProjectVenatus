@@ -138,6 +138,7 @@ public class Player {
                     
             }
         }
+        HeadsUpDisplay.updateExperience();
     }
     
     private void levelUp(){
@@ -145,9 +146,7 @@ public class Player {
         skillPoints+=3;
     }
     
-    
     public void test(){
-        addXP(200);
         addItem(new Weapon(Weapon.Weap.GREAT_SWORD));
         addItem(new Shield(Shield.Shld.WOOD_SHIELD));
         addItem(new Armor(Armor.Armr.IRON_BOOTS));

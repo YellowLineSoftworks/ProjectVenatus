@@ -11,68 +11,74 @@ import javax.swing.JLabel;
  */
 public class HeadsUpDisplay {
 
-    private static int[] values = new int[]{0, 4, 7, 11, 15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 54, 59, 63, 67, 70, 74, 78, 81, 85, 89, 92, 96, 100};
-
+    private static int healthID = -1;
+    private static int healthFrameID = -1;
+    private static int manaFrameID = -1;
+    private static int manaID = -1;
+    private static int expFrameID = -1;
+    private static int expID = -1;
+    
     public static void initializeHUD() {
         //Initialize the mana bar
         
         //Initialize the health bar
         if (Player.mainchar.maxhealth != 0) {
             float a = (float) Player.mainchar.currenthealth / (float) Player.mainchar.maxhealth;
-            int b = (int) (100 * a);
-            boolean isInArray = false;
-            for (int c = 0; c == values.length; c++) {
-                if (b == values[c]) {
-                    isInArray = true;
-                }
-            }
-            while (!isInArray) {
-                for (int c = 0; c < values.length; c++) {
-                    if (b == values[c]) {
-                        isInArray = true;
-                        break;
-                    }
-                }
-                if (isInArray) {
-                    break;
-                }
-                b++;
-            }
-            DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health/" + b + ".png"), 0, 431);
+            int b = (int) (22 * a);
+            b++;
+            healthFrameID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health Bar Frame.png"), 0, 483);
+            healthID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health Bars/" + b + ".png"), 8, 491);
         }
-        
         if (Player.mainchar.maxmana != 0) { 
             float a = (float) Player.mainchar.currentmana / (float) Player.mainchar.maxmana;
-            int b = (int) (100 * a);
-            
+            int b = (int) (22 * a);
+            b++;
+            manaFrameID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health Bar Frame.png"), 0, 450);
+            manaID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Mana Bars/" + b + ".png"), 8, 458);
         }
+        if (Player.mainchar.reqXP != 0) { 
+            float a = (float) Player.mainchar.experience / (float) Player.mainchar.reqXP;
+            int b = (int) (22 * a);
+            b++;
+            expFrameID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health Bar Frame.png"), 622, 483);
+            expID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Exp Bars/" + b + ".png"), 630, 491);
+        }
+    }
+    
+    public static void update() {
+        updateHealth();
+        updateMana();
+        //Experience is already updated every time Player.addXP is called
     }
 
     public static void updateHealth() {
+        DisplayHandler.disp.removeImage(healthID);
         if (Player.mainchar.maxhealth != 0) {
             float a = (float) Player.mainchar.currenthealth / (float) Player.mainchar.maxhealth;
-            int b = (int) (100 * a);
-            boolean isInArray = false;
-            for (int c = 0; c == values.length; c++) {
-                if (b == values[c]) {
-                    isInArray = true;
-                }
-            }
-            while (!isInArray) {
-                for (int c = 0; c < values.length; c++) {
-                    if (b == values[c]) {
-                        isInArray = true;
-                        break;
-                    }
-                }
-                if (isInArray) {
-                    break;
-                }
-                b++;
-            }
-            DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health/" + b + ".png"), 0, 431);
+            int b = (int) (22 * a);
+            b++;
+            healthID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health Bars/" + b + ".png"), 8, 491);
         }
-
+    }
+    
+    public static void updateMana() {
+        DisplayHandler.disp.removeImage(manaID);
+        if (Player.mainchar.maxmana != 0) { 
+            float a = (float) Player.mainchar.currentmana / (float) Player.mainchar.maxmana;
+            int b = (int) (22 * a);
+            b++;
+            manaID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Mana Bars/" + b + ".png"), 8, 458);
+        }
+    }
+    
+    public static void updateExperience() {
+        DisplayHandler.disp.removeImage(expID);
+        if (Player.mainchar.reqXP != 0) { 
+            float a = (float) Player.mainchar.experience / (float) Player.mainchar.reqXP;
+            int b = (int) (22 * a);
+            b++;
+            expID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Exp Bars/" + b + ".png"), 630, 491);
+        }
     }
     
 }

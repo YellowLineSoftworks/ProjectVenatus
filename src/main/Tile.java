@@ -36,6 +36,7 @@ public class Tile implements Serializable{
         location.put("yCord", yl);
         allTiles.add(this);
     }
+    
     public Tile(int xl, int yl, boolean isMain){
         location.put("xCord", xl);
         location.put("yCord", yl);
@@ -56,8 +57,8 @@ public class Tile implements Serializable{
         location.put("yCord", yl);
         allTiles.add(this);
         this.isMain = isMain;
-        this.objects = objects;
         objects.add(MainBase.mainbase);
+        this.objects = objects;
     }
     
     public Tile(){
@@ -66,7 +67,9 @@ public class Tile implements Serializable{
     
     public void addObject(GameObject o){
         objects.add(o);
-        this.displayAllObjects();
+        if (this == currentTile) {
+            this.displayAllObjects();
+        }
     }
     
     public void removeObject(GameObject o){
@@ -85,7 +88,11 @@ public class Tile implements Serializable{
     }
     
     public void setCurrentTile(){
-        DisplayHandler.disp.resetBufferedImage();
+        if (currentTile != null) {
+            for (GameObject obj : currentTile.objects) {
+                DisplayHandler.disp.removeImage(obj.imageID);
+            }
+        }
         currentTile = this;
         this.displayAllObjects();
     }
@@ -133,6 +140,7 @@ public class Tile implements Serializable{
         }
         return false;
     }
+    
     public boolean serialize(){
         try {
             FileOutputStream fileout = new FileOutputStream("C:\\Users\\Austin\\Documents\\GitHub\\ProjectVenatus\\src\\main\\Tiles\\tile"+location.get("xCord")+location.get("yCord")+".ser");

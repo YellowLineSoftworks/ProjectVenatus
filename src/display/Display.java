@@ -29,14 +29,14 @@ public class Display {
     public boolean isDev = false;
     
     public Display() {
-        imageMerge = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        imageMerge = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         imageMergeGraphics = imageMerge.createGraphics();
-        image = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        image = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g = image.createGraphics();
-        layer2 = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        layer2 = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g2 = layer2.createGraphics();
         g.setColor(Color.white);
-        g.fillRect(0, 0, 726, 539);
+        g.fillRect(0, 0, 772, 518);
     }
     
     private void updateIcon() {
@@ -148,7 +148,7 @@ public class Display {
     }
     
     private void redrawMovableLayer() {
-        layer2 = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        layer2 = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g2 = layer2.createGraphics();
         for (int x = 0; x < movableimages.size(); x++) {
             SuperImage img = movableimages.get(x);
@@ -216,20 +216,20 @@ public class Display {
     }
     
     public void resetBufferedImage() {
-        image = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        image = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g = image.createGraphics();
         g.setColor(Color.white);
-        g.fillRect(0, 0, 726, 539);
+        g.fillRect(0, 0, 772, 518);
         images = new ArrayList<>();
         movableimages = new ArrayList<>();
         updateIcon();
     }
     
     private void refreshLayer1() {
-        image = new BufferedImage(721, 511, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        image = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g = image.createGraphics();
         g.setColor(Color.white);
-        g.fillRect(0, 0, 726, 539);
+        g.fillRect(0, 0, 772, 518);
         for (int x = 0; x < images.size(); x++) {
             SuperImage img = images.get(x);
             g.drawImage(img.image, img.dispx, img.dispy, img.dispx + img.endx - img.startx, img.dispy + img.endy - img.starty, img.startx, img.starty, img.endx, img.endy, null);

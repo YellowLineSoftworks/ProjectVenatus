@@ -132,11 +132,13 @@ public class DisplayHandler {
         for(int i = 0; i<Player.mainchar.items.size(); i++){
             if(Player.mainchar.items.get(i).itemtype == t){
                 
-            MainGUI.itemListModel.addElement(Player.mainchar.items.get(i).name);
-            currentItemListDisplay.add(Player.mainchar.items.get(i));
+                MainGUI.itemListModel.addElement(Player.mainchar.items.get(i).name);
+                currentItemListDisplay.add(Player.mainchar.items.get(i));
                 
             }
+            
         }     
+        
     }
     
     public static void itemListPrinter(Armor.Type at){

@@ -4,9 +4,6 @@ package display;
 import java.awt.Point;
 import main.Objects.ActivatableObject;
 import java.awt.event.KeyEvent;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import main.Objects.AttackableObject;
 import main.Player;
 import main.Macro;
@@ -33,19 +30,15 @@ public class KeyListen implements java.awt.event.KeyListener {
         isMoving = true;
         if (keyCode == KeyEvent.VK_UP) {
             main.Player.mainchar.currentDirection = "up";
-            int[] ints = {8, 0};
-            int x = 8;
-            int y = 0;
             //DisplayHandler.moveCharacter("up");
             DisplayHandler.weaponSprite = DisplayHandler.weapUp;
             //DisplayHandler.displayWeapon(true);
             if(!move.isAlive()) {
-            move.start();
+                move.start();
             }
         }
         if (keyCode == KeyEvent.VK_DOWN) {
             main.Player.mainchar.currentDirection = "down";
-            int[] ints = {-8, 0};
             //DisplayHandler.moveCharacter("down");
             DisplayHandler.weaponSprite = DisplayHandler.weapDown;
             //DisplayHandler.displayWeapon(true);
@@ -55,7 +48,6 @@ public class KeyListen implements java.awt.event.KeyListener {
         }
         if (keyCode == KeyEvent.VK_RIGHT) {
             main.Player.mainchar.currentDirection = "right";
-            int[] ints = {0, 8};
             //DisplayHandler.moveCharacter("right");
             DisplayHandler.weaponSprite = DisplayHandler.weapRight;
             //DisplayHandler.displayWeapon(true);
@@ -65,7 +57,6 @@ public class KeyListen implements java.awt.event.KeyListener {
         }
         if (keyCode == KeyEvent.VK_LEFT) {
             main.Player.mainchar.currentDirection = "left";
-            int[] ints = {0, -8};
             //DisplayHandler.moveCharacter("left");
             DisplayHandler.weaponSprite = DisplayHandler.weapLeft;
             //DisplayHandler.displayWeapon(true);
@@ -89,7 +80,6 @@ public class KeyListen implements java.awt.event.KeyListener {
                         obj.activate();
                     }
                 }
-                
                     
             }
         }

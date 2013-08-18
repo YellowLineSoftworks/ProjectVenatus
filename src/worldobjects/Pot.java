@@ -6,6 +6,7 @@ import items.Item;
 import java.util.ArrayList;
 import java.util.List;
 import main.Objects.AttackableObject;
+import main.Player;
 import main.Tile;
 
 /**
@@ -39,6 +40,7 @@ public class Pot extends main.Objects.AttackableObject {
         //Replace the pot with a reward to the player, but only sometimes.
         for(int c = 0; c < items.size(); c++) {
             FloatingItem tempItem = new FloatingItem(x, y, items.get(c));
+            Player.mainchar.addXP(5);
         }
         super.destroy();
     }

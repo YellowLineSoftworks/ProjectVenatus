@@ -140,7 +140,6 @@ public class MainBase extends ActivatableObject{
         baseTile.setCurrentTile();
     }
     
-    
     public void exitBase(){
         inBase = false;
         Tile.setCurrentTile(0,0);
