@@ -51,10 +51,11 @@ public class ClientEventHandler {
         pot = new Pot(100, 100, items);
         bush = new Bush(200, 100, items);
         Chest c = new Chest(400, 100,new ArrayList(Arrays.asList(new Consumeable(Consumeable.Cnsm.POTION), new Weapon(Weapon.MagicWeap.FIRE_ROD))));
-        
+        Chest c2 = new Chest(300, 400,new ArrayList(Arrays.asList(new Consumeable(Consumeable.Cnsm.POTION), new Weapon(Weapon.Weap.LONG_SWORD))));
         List<GameObject> objects = new ArrayList();
         List<GameObject> objects2 = new ArrayList();
         objects2.add(new Bush(300, 100));
+        objects2.add(c2);
         
         Tile sTile = new Tile(0, 1, objects2);
         
