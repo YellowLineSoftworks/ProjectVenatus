@@ -97,6 +97,6 @@ public class Item {
     
     
     public enum Type{
-        SHIELD,WEAPON,CONSUMEABLE,ARMOR,ALL,RING,CRAFT
+        SHIELD,WEAPON,CONSUMEABLE,ARMOR,ALL,RING, RESOURCE;
     }
 }

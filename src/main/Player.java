@@ -11,7 +11,7 @@ import java.awt.Image;
 import display.ImageRetriever;
 import items.Consumeable;
 import display.DisplayHandler;
-import items.CraftingItem;
+import items.ResourceItem;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
@@ -161,7 +161,7 @@ public class Player {
         addItem(new Consumeable(Consumeable.Cnsm.POTION));
         addItem(new Shield(Shield.MagicShld.SHIELD_OF_LIGHT));
         addItem(new Weapon(Weapon.MagicWeap.FIRE_ROD));
-        addItem(new CraftingItem(CraftingItem.CraftItem.WOOD));
+        addItem(new ResourceItem(ResourceItem.ResItem.WOOD));
         for(int i = 0; i< items.size(); i++){
             equip(items.get(i));
         }
@@ -223,6 +223,10 @@ public class Player {
     
     public void addItem(Item i){
         items.add(i);
+    }
+    
+    public void removeItem(Item i){
+        items.remove(i);
     }
     
     //adds a skill to the skill list and invokes the method for said skill

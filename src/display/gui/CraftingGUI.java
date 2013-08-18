@@ -34,10 +34,10 @@ public class CraftingGUI extends javax.swing.JFrame {
         craftTwo = new javax.swing.JLabel();
         craftSpace1 = new javax.swing.JPanel();
         craftOne = new javax.swing.JLabel();
-        finalCraftSpace = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        itemList = new javax.swing.JList();
+        ds = new javax.swing.JPanel();
+        fCraftingSpace = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,31 +104,30 @@ public class CraftingGUI extends javax.swing.JFrame {
             .addComponent(craftOne, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
         );
 
-        finalCraftSpace.setBackground(new java.awt.Color(255, 153, 153));
-        finalCraftSpace.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        finalCraftSpace.setForeground(new java.awt.Color(255, 255, 255));
-        finalCraftSpace.setPreferredSize(new java.awt.Dimension(75, 75));
+        ds.setBackground(new java.awt.Color(255, 153, 153));
+        ds.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        ds.setForeground(new java.awt.Color(255, 255, 255));
+        ds.setPreferredSize(new java.awt.Dimension(75, 75));
 
-        javax.swing.GroupLayout finalCraftSpaceLayout = new javax.swing.GroupLayout(finalCraftSpace);
-        finalCraftSpace.setLayout(finalCraftSpaceLayout);
-        finalCraftSpaceLayout.setHorizontalGroup(
-            finalCraftSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+        javax.swing.GroupLayout dsLayout = new javax.swing.GroupLayout(ds);
+        ds.setLayout(dsLayout);
+        dsLayout.setHorizontalGroup(
+            dsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fCraftingSpace, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
         );
-        finalCraftSpaceLayout.setVerticalGroup(
-            finalCraftSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+        dsLayout.setVerticalGroup(
+            dsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fCraftingSpace, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
         );
-
-        itemList.setModel(listModel);
-        itemList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                itemListValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(itemList);
 
         jLabel1.setText("Crafting");
+
+        jButton1.setText("Craft");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,16 +140,17 @@ public class CraftingGUI extends javax.swing.JFrame {
                         .addComponent(craftSpace1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(finalCraftSpace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(craftSpace2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(craftSpace3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(craftSpace3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(114, 114, 114)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -159,15 +159,14 @@ public class CraftingGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(craftSpace1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(craftSpace2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(craftSpace3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(finalCraftSpace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(craftSpace1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(craftSpace2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(craftSpace3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(ds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -186,9 +185,9 @@ public class CraftingGUI extends javax.swing.JFrame {
         CraftingDisplaySlave.displayList(3);
     }//GEN-LAST:event_craftSpace3MouseClicked
 
-    private void itemListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_itemListValueChanged
-        CraftingDisplaySlave.displayCraftingItem();
-    }//GEN-LAST:event_itemListValueChanged
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        CraftingDisplaySlave.craftItem();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -231,9 +230,9 @@ public class CraftingGUI extends javax.swing.JFrame {
     private javax.swing.JPanel craftSpace3;
     public javax.swing.JLabel craftThree;
     public javax.swing.JLabel craftTwo;
-    private javax.swing.JPanel finalCraftSpace;
-    public javax.swing.JList itemList;
+    private javax.swing.JPanel ds;
+    public javax.swing.JLabel fCraftingSpace;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

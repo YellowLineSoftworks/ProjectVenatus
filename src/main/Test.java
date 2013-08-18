@@ -7,7 +7,10 @@ package main;
 
 public class Test {
     public static void main(String[] args){
-        Tile t = Tile.deSerialize(2, 2);
-        System.out.println(t.location);
+        
+    }
+    
+    public void t(int[] ts){
+        
     }
 }
