@@ -67,7 +67,7 @@ public class Tile implements Serializable{
     
     public void addObject(GameObject o){
         objects.add(o);
-        if (this == currentTile) {
+        if (this == currentTile || isDev) {
             this.displayAllObjects();
         }
     }

@@ -49,6 +49,7 @@ public class LevelMakerDisplaySlave {
         cgui.setVisible(true);
         makeLists();
         tile = new Tile();
+        tile.isDev = true;
     }
     
     public static void makeLists(){
@@ -82,12 +83,12 @@ public class LevelMakerDisplaySlave {
             
         }
     }
+    
     public static void addObject(){
         switch(worldObjectGUI.sList.getSelectedIndex()){
             case 0:
                 tile.addObject(new Bush(Integer.parseInt(worldObjectGUI.xTextField.getText()), 
                         Integer.parseInt(worldObjectGUI.yTextField.getText())));
-                System.out.println(1);
                 break;
             case 1:
                 tile.addObject(new Pot(Integer.parseInt(worldObjectGUI.xTextField.getText()), 
@@ -96,6 +97,7 @@ public class LevelMakerDisplaySlave {
                 
         }
     }
+    
     public static void save(){
         HashMap hm = new HashMap();
         hm.put("xCord", Integer.parseInt(saveGUI.xField.getText()));
