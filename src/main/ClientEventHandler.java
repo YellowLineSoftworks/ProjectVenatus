@@ -46,8 +46,6 @@ public class ClientEventHandler {
         Player.mainchar = new Player(NewGame.playerName, NewGame.playerClass);
         MainBase.mainbase = new MainBase();
         DisplayHandler.initDisplay();
-        HeadsUpDisplay.initializeHUD();
-        DisplayHandler.displayStats();
         List<Item> items = new ArrayList();
         items.add(new Shield(Shield.Shld.WOOD_SHIELD));
         pot = new Pot(100, 100, items);

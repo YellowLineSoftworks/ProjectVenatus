@@ -18,6 +18,8 @@ import homestead.AddOn;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import main.ClientEventHandler;
+import main.HeadsUpDisplay;
+import main.Player.Skill;
 import main.Tile;
 
 
@@ -58,7 +60,9 @@ public class DisplayHandler {
         MainGUI.MainTabbedPane.addKeyListener(keylistener);
         resourceInfoDisplayer();
         DisplayHandler.displayAllInvinImages();
-        int delay = 1000;  //milliseconds
+        HeadsUpDisplay.initializeHUD();
+        DisplayHandler.displayStats();
+        DisplayHandler.displaySkills();
     }
     
     public static void displayStats() {
@@ -403,6 +407,50 @@ public class DisplayHandler {
         }else{
             if(disp.imageExists(weaponSprite)){
                 disp.removeImage(weaponSprite);
+            }
+        }
+    }
+    
+    public static void displaySkills(){
+        for(int i = 0;i<Player.mainchar.classSkills.length;i++){
+            switch(i){
+                case 0:
+                    MainGUI.perkButton0.setText(Player.mainchar.classSkills[0].name);
+                    break;
+                case 1:
+                    MainGUI.perkButton1.setText(Player.mainchar.classSkills[1].name);
+                    break;
+                case 2:
+                    MainGUI.perkButton2.setText(Player.mainchar.classSkills[2].name);
+                    break;
+                case 3:
+                    MainGUI.perkButton3.setText(Player.mainchar.classSkills[3].name);
+                    break;
+                case 4:
+                    MainGUI.perkButton4.setText(Player.mainchar.classSkills[4].name);
+                    break;
+                case 5:
+                    MainGUI.perkButton5.setText(Player.mainchar.classSkills[5].name);
+                    break;
+                case 6:
+                    MainGUI.perkButton6.setText(Player.mainchar.classSkills[6].name);
+                    break;
+                case 7:
+                    MainGUI.perkButton7.setText(Player.mainchar.classSkills[7].name);
+                    break;
+                case 8:
+                    MainGUI.perkButton8.setText(Player.mainchar.classSkills[8].name);
+                    break;
+                case 9:
+                    MainGUI.perkButton9.setText(Player.mainchar.classSkills[9].name);
+                    break;
+                case 10:
+                    MainGUI.perkButton10.setText(Player.mainchar.classSkills[10].name);
+                    break;
+                case 11:
+                    MainGUI.perkButton11.setText(Player.mainchar.classSkills[11].name);
+                    break;
+                    
             }
         }
     }

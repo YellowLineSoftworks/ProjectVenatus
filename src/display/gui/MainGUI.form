@@ -1861,9 +1861,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButton21" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="perkButton10" min="-2" pref="72" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jButton20" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="perkButton11" min="-2" pref="72" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -1871,33 +1871,33 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jButton14" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="jButton22" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="perkButton0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="perkButton7" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jButton19" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="perkButton8" min="-2" pref="72" max="-2" attributes="0"/>
                                           <EmptySpace pref="37" max="32767" attributes="0"/>
-                                          <Component id="jButton18" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="perkButton9" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jButton13" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="perkButton1" min="-2" pref="72" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jButton17" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="perkButton2" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jButton24" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="jButton23" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="perkButton3" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="perkButton5" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jButton16" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="jButton15" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="perkButton6" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="perkButton4" min="-2" pref="72" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                               </Group>
@@ -1917,30 +1917,30 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jButton14" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="jButton13" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="jButton17" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="perkButton0" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="perkButton1" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="perkButton2" min="-2" pref="73" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton15" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <Component id="perkButton4" min="-2" pref="73" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jButton24" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton3" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton16" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="jButton23" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton6" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton5" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton19" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="jButton18" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="jButton22" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton8" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton9" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton7" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton20" min="-2" pref="73" max="-2" attributes="0"/>
-                              <Component id="jButton21" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton11" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="perkButton10" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel32" min="-2" pref="14" max="-2" attributes="0"/>
@@ -1950,29 +1950,65 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton13">
+                <Component class="javax.swing.JButton" name="perkButton1">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton14">
+                <Component class="javax.swing.JButton" name="perkButton0">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton15">
+                <Component class="javax.swing.JButton" name="perkButton4">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton16">
+                <Component class="javax.swing.JButton" name="perkButton6">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton17">
+                <Component class="javax.swing.JButton" name="perkButton2">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton18">
+                <Component class="javax.swing.JButton" name="perkButton9">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton19">
+                <Component class="javax.swing.JButton" name="perkButton8">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton20">
+                <Component class="javax.swing.JButton" name="perkButton11">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton21">
+                <Component class="javax.swing.JButton" name="perkButton10">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton22">
+                <Component class="javax.swing.JButton" name="perkButton7">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton23">
+                <Component class="javax.swing.JButton" name="perkButton5">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton24">
+                <Component class="javax.swing.JButton" name="perkButton3">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel32">
                   <Properties>

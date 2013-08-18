@@ -40,19 +40,17 @@ public class Player {
     public int reqXP;
     public int skillPoints;
     
-    
+    public Skill[] classSkills;
     
     public final int reqXP_Level2 = 20;
     public final int reqXP_Level3 = 30;
     public final int reqXP_Level4 = 50;
     public final int reqXP_Level5 = 100;
     
-    
     public Classes cclass;
-    
     public String name;
     
-    public List<Skill> skill = new ArrayList();
+    public List<Skill> skills = new ArrayList();
     public List<Item> items = new ArrayList();
    
     public Shield right_hand_item;
@@ -74,6 +72,7 @@ public class Player {
     public Player(String na, Classes cla){
         name = na;
         cclass = cla;
+        classSkills = cla.skills;
         switch(cclass){
             case WARRIOR:
                 imgup = new ImageRetriever().getImage("/res/Character Sprites/Warrior/Tier3 Warrior Back.png");
@@ -104,6 +103,7 @@ public class Player {
         level = 1;
         experience = 1;
         reqXP = reqXP_Level2;
+        skillPoints+=10;
         
         maxhealth = 100;
         currenthealth = maxhealth;
@@ -231,7 +231,7 @@ public class Player {
     
     //adds a skill to the skill list and invokes the method for said skill
     public void addSkill(Skill s){
-        skill.add(s);
+        skills.add(s);
         if(s.method!=null){
             try {
                 s.method.invoke(this);
@@ -298,30 +298,34 @@ public class Player {
     }
     
     public enum Classes{
-        MAGE(5,13,7,7),
-        WARRIOR(13,5,7,7),
-        ROGUE(7,7,5,13);
+        MAGE(5,13,7,7, new Skill[]{}),
+        WARRIOR(13,5,7,7, new Skill[]{Skill.HEALTH_BOOST, Skill.HEALTH_REGENERATION}),
+        ROGUE(7,7,5,13, new Skill[]{});
         
         int strength;
         int intelligence;
         int vitality;
         int dexterity;
+        Skill[] skills;
         
-        Classes(int s, int i, int v, int d){
+        Classes(int s, int i, int v, int d, Skill[] sa){
             strength =s;
             intelligence = i;
             vitality = v;
             dexterity = d;
+            skills = sa;
         }
     }
     
     public enum Skill{
-        HEALTH_REGENERATION("healthRegen");
+        HEALTH_REGENERATION("healthRegen"), HEALTH_BOOST("healthBoost");
         
         
-        Method method;
-        Method sMethod;
+        public Method method;
+        public Method sMethod;
+        public String name;
         Skill(String methodName){
+            name = this.name().replace("_", " ").toLowerCase();
             try {
                 method = Player.Skill.class.getMethod(methodName);
                 sMethod = Player.Skill.class.getMethod("s"+methodName);
@@ -335,6 +339,14 @@ public class Player {
         }
         void shealthRegen(){
             
+        }
+        
+        void healthBoost(){
+            mainchar.maxhealth+=10;
+        }
+        
+        void shealthBoost(){
+            mainchar.maxhealth-=10;
         }
         
         
