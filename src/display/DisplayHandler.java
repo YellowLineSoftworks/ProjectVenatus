@@ -88,40 +88,115 @@ public class DisplayHandler {
             case "up":
                 Player.mainchar.currentDirectionDupe = "up";
                 chary -=5;
-                imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
+                if (chary < 0) {
+                    if(!Tile.setCurrentTile("up")) {
+                        chary = 0;
+                    } else {
+                        chary = 478;
+                        imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
+                    }
+                } else {
+                    imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
+                }
                 break;
             case "down":
                 Player.mainchar.currentDirectionDupe = "down";
                 chary +=5;
-                imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                if (chary > 478) {
+                    if(!Tile.setCurrentTile("down")) {
+                        chary = 478;
+                    } else {
+                        chary = 0;
+                        imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                    }
+                } else {
+                    imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                }
                 break;
             case "right":
                 Player.mainchar.currentDirectionDupe = "right";
                 charx+=5;
-                imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
+                if (charx > 732) {
+                    if(!Tile.setCurrentTile("right")) {
+                        charx = 732;
+                    } else {
+                        charx = 0;
+                        imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
+                    }
+                } else {
+                    imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);                    
+                }
                 break;
            case "left":
                 Player.mainchar.currentDirectionDupe = "left";
                 charx-=5;
-                imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                if (charx < 0) {
+                    if(!Tile.setCurrentTile("left")) {
+                        charx = 0;
+                    } else {
+                        charx = 738;
+                        imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                    }
+                } else {
+                    imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                }
                 break;
         }
         } else {
             switch(direction){
                 case "up":
                     chary -=5;
+                    if (chary < 0) {
+                        if(!Tile.setCurrentTile("up")) {
+                            chary = 0;
+                        } else {
+                            chary = 478;
+                            disp.moveImage(imgid, charx, chary);
+                        }
+                    } else {
+                        disp.moveImage(imgid, charx, chary);
+                    }
                     break;
                 case "down":
                     chary +=5;
+                    if (chary > 478) {
+                        if(!Tile.setCurrentTile("down")) {
+                            chary = 478;
+                        } else {
+                            chary = 0;
+                            disp.moveImage(imgid, charx, chary);
+                        }
+                    } else {
+                        disp.moveImage(imgid, charx, chary);
+                    }
                     break;
                 case "right":
                     charx+=5;
+                    if (charx > 732) {
+                        if(!Tile.setCurrentTile("right")) {
+                            charx = 732;
+                        } else {
+                            charx = 0;
+                            disp.moveImage(imgid, charx, chary);
+                        }
+                    } else {
+                        disp.moveImage(imgid, charx, chary);
+                    }
                     break;
                case "left":
                     charx-=5;
+                    if (charx < 0) {
+                        if(!Tile.setCurrentTile("left")) {
+                            charx = 0;
+                        } else {
+                            charx = 732;
+                            disp.moveImage(imgid, charx, chary);
+                        }
+                    } else {
+                        disp.moveImage(imgid, charx, chary);
+                    }
                     break;
             }
-            disp.moveImage(imgid, charx, chary);
         }
     }
     

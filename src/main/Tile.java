@@ -26,6 +26,7 @@ public class Tile implements Serializable{
     
     public List<GameObject> objects = new ArrayList();
     public HashMap location = new HashMap();
+    public static HashMap currentLocation = new HashMap();
     public boolean isMain = false;
     public boolean isDev = false;
     public static Tile currentTile;
@@ -98,30 +99,28 @@ public class Tile implements Serializable{
     }
     
     public static boolean setCurrentTile(String direction){
-        HashMap loc;
+        HashMap loc = new HashMap();
+        loc.put("yCord", (int)currentTile.location.get("yCord"));
+        loc.put("xCord", (int)currentTile.location.get("xCord"));
         switch(direction){
             case "up":
-                loc = currentTile.location;
-                loc.put("yCord", (int)loc.get("yCord")+1);
+                loc.put("yCord", (int)currentTile.location.get("yCord")+1);
                 break;
             case "down":
-                loc = currentTile.location;
-                loc.put("yCord", (int)loc.get("yCord")-1);
+                loc.put("yCord", (int)currentTile.location.get("yCord")-1);
                 break;
             case "right":
-                loc = currentTile.location;
-                loc.put("xCord", (int)loc.get("xCord")+1);
+                loc.put("xCord", (int)currentTile.location.get("xCord")+1);
                 break;
             case "left":
-                loc = currentTile.location;
-                loc.put("xCord", (int)loc.get("xCord")-1);
+                loc.put("xCord", (int)currentTile.location.get("xCord")-1);
                 break;
             default:
                 return false;
         }
-        for(int i=0;i<allTiles.size();i++){
-            if(allTiles.get(i).location.equals(loc)){
-                allTiles.get(i).setCurrentTile();
+        for(Tile t: allTiles){
+            if(t.location.equals(loc)){
+                t.setCurrentTile();
                 return true;
             }
         }
