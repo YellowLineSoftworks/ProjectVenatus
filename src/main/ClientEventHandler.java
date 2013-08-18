@@ -67,10 +67,6 @@ public class ClientEventHandler {
         mainTile.setCurrentTile();
         //Tile.setCurrentTile("up");
         
-        //Test the HUD. Replace those values to satisfaction.
-        Player.mainchar.currentmana-=40;
-        Player.mainchar.currenthealth-=75;
-        HeadsUpDisplay.update();
         
     }
     

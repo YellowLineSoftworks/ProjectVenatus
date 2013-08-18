@@ -34,7 +34,7 @@ public class HeadsUpDisplay {
             int b = (int) (22 * a);
             b++;
             manaFrameID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Health Bar Frame.png"), 300, 478);
-            manaID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Mana Bars/" + b + ".png"), 318, 486);
+            manaID = DisplayHandler.disp.drawImage(new ImageRetriever().getImage("/res/Heads Up Display/Mana Bars/" + b + ".png"), 308, 486);
         }
         if (Player.mainchar.reqXP != 0) { 
             float a = (float) Player.mainchar.experience / (float) Player.mainchar.reqXP;
