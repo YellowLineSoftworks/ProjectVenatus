@@ -17,9 +17,10 @@ import main.Player;
 import homestead.AddOn;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import main.ClientEventHandler;
 import main.HeadsUpDisplay;
-import main.Player.Skill;
+import main.Player.Perk;
 import main.Tile;
 
 
@@ -48,6 +49,8 @@ public class DisplayHandler {
     public static Image weapRight= new ImageRetriever().getImage("/res/Character Sprites/Weapon Sprites/Iron Sword Right.png");
     public static Image weapLeft= new ImageRetriever().getImage("/res/Character Sprites/Weapon Sprites/Iron Sword Left.png");
     
+    public static Player.Perk currentPerk;
+    public static int perkNum;
     public static Image weaponSprite;
     
     public static void initDisplay(){
@@ -62,7 +65,7 @@ public class DisplayHandler {
         DisplayHandler.displayAllInvinImages();
         HeadsUpDisplay.initializeHUD();
         DisplayHandler.displayStats();
-        DisplayHandler.displaySkills();
+        DisplayHandler.displayPerks();
     }
     
     public static void displayStats() {
@@ -411,7 +414,8 @@ public class DisplayHandler {
         }
     }
     
-    public static void displaySkills(){
+    public static void displayPerks(){
+        MainGUI.perkPoints.setText(Integer.toString(Player.mainchar.perkPoints));
         for(int i = 0;i<Player.mainchar.classSkills.length;i++){
             switch(i){
                 case 0:
@@ -452,6 +456,33 @@ public class DisplayHandler {
                     break;
                     
             }
+        }
+    }
+    
+    public static void displayPerk(int num){
+        currentPerk = Player.mainchar.classSkills[num];
+        if(Player.mainchar.classSkills.length>num){
+            String s = "";
+            if(Player.mainchar.skills.contains(currentPerk)){
+                s += "\n\n[Obtained]";
+            }
+            MainGUI.perkNameDis.setText(Player.mainchar.classSkills[num].name);
+            MainGUI.perkDescription.setText(Player.mainchar.classSkills[num].description+s);
+            perkNum = num;
+        }
+    }
+    
+    public static void buyPerk(){
+        if(Player.mainchar.perkPoints>1){
+            if(!Player.mainchar.skills.contains(currentPerk)){
+                Player.mainchar.addPerk(currentPerk);
+                Player.mainchar.perkPoints-=1;
+                MainGUI.perkPoints.setText(Integer.toString(Player.mainchar.perkPoints));
+                displayStats();
+                displayPerk(perkNum);
+            }
+        }else {
+            JOptionPane.showMessageDialog(mgui, "You do not have any perk points");
         }
     }
     

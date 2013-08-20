@@ -186,12 +186,12 @@ public class MainGUI extends javax.swing.JFrame {
         vitalityUp = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         pointsRemaining = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         perkDescription = new javax.swing.JTextPane();
+        perkNameDis = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        perkPoints = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -1114,6 +1114,78 @@ public class MainGUI extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(204, 204, 204));
         jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        perkButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton1MouseClicked(evt);
+            }
+        });
+
+        perkButton0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton0MouseClicked(evt);
+            }
+        });
+
+        perkButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton4MouseClicked(evt);
+            }
+        });
+
+        perkButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton6MouseClicked(evt);
+            }
+        });
+
+        perkButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton2MouseClicked(evt);
+            }
+        });
+
+        perkButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton9MouseClicked(evt);
+            }
+        });
+
+        perkButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton8MouseClicked(evt);
+            }
+        });
+
+        perkButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton11MouseClicked(evt);
+            }
+        });
+
+        perkButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton10MouseClicked(evt);
+            }
+        });
+
+        perkButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton7MouseClicked(evt);
+            }
+        });
+
+        perkButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton5MouseClicked(evt);
+            }
+        });
+
+        perkButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perkButton3MouseClicked(evt);
+            }
+        });
+
         jLabel32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel32.setText("WARRIOR");
 
@@ -1187,7 +1259,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .addComponent(perkButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel12.setBackground(new java.awt.Color(153, 153, 153));
@@ -1358,86 +1430,92 @@ public class MainGUI extends javax.swing.JFrame {
                     .addComponent(skillsDexterity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dexterityDown)
                     .addComponent(dexterityUp))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jButton3.setText("/\\");
+        jScrollPane8.setViewportView(perkDescription);
 
-            jButton4.setText("\\/");
+        perkNameDis.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        perkNameDis.setText("Perk Name");
 
-            jScrollPane8.setViewportView(perkDescription);
+        jButton5.setText("Purchase");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
-            jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-            jLabel31.setText("Perk Name");
+        perkPoints.setText("0");
 
-            jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-            jTextField3.setText("0");
+        jLabel31.setText("Points:");
 
-            javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-            jPanel6.setLayout(jPanel6Layout);
-            jPanel6Layout.setHorizontalGroup(
-                jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                .addComponent(jTextField3))
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane8))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGap(128, 128, 128)
-                                    .addComponent(jLabel31)
-                                    .addGap(0, 0, Short.MAX_VALUE))))
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap())
-            );
-            jPanel6Layout.setVerticalGroup(
-                jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addContainerGap())
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(2, 2, 2)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60))))
-            );
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(20, Short.MAX_VALUE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel31)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(perkPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane8)
+                                .addGap(28, 28, 28))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(perkNameDis)
+                        .addGap(163, 163, 163))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(perkNameDis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(perkPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+        );
 
-            MainTabbedPane.addTab("Skills", jPanel6);
+        MainTabbedPane.addTab("Skills", jPanel6);
 
-            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-            getContentPane().setLayout(layout);
-            layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(MainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-            );
-            layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(MainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-            );
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-            pack();
-        }// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void itemListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_itemListValueChanged
         DisplayHandler.itemInfoPrinter();
@@ -1544,6 +1622,58 @@ public class MainGUI extends javax.swing.JFrame {
         AddOnList.setSelectedIndex(0);
     }//GEN-LAST:event_mainBaseImageDisplayMouseClicked
 
+    private void perkButton0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton0MouseClicked
+        DisplayHandler.displayPerk(0);
+    }//GEN-LAST:event_perkButton0MouseClicked
+
+    private void perkButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton1MouseClicked
+        DisplayHandler.displayPerk(1);
+    }//GEN-LAST:event_perkButton1MouseClicked
+
+    private void perkButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton2MouseClicked
+        DisplayHandler.displayPerk(2);
+    }//GEN-LAST:event_perkButton2MouseClicked
+
+    private void perkButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton3MouseClicked
+        DisplayHandler.displayPerk(3);
+    }//GEN-LAST:event_perkButton3MouseClicked
+
+    private void perkButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton4MouseClicked
+        DisplayHandler.displayPerk(4);
+    }//GEN-LAST:event_perkButton4MouseClicked
+
+    private void perkButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton5MouseClicked
+        DisplayHandler.displayPerk(5);
+    }//GEN-LAST:event_perkButton5MouseClicked
+
+    private void perkButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton6MouseClicked
+        DisplayHandler.displayPerk(6);
+    }//GEN-LAST:event_perkButton6MouseClicked
+
+    private void perkButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton7MouseClicked
+        DisplayHandler.displayPerk(7);
+    }//GEN-LAST:event_perkButton7MouseClicked
+
+    private void perkButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton8MouseClicked
+        DisplayHandler.displayPerk(8);
+    }//GEN-LAST:event_perkButton8MouseClicked
+
+    private void perkButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton9MouseClicked
+        DisplayHandler.displayPerk(9);
+    }//GEN-LAST:event_perkButton9MouseClicked
+
+    private void perkButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton10MouseClicked
+        DisplayHandler.displayPerk(10);
+    }//GEN-LAST:event_perkButton10MouseClicked
+
+    private void perkButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perkButton11MouseClicked
+        DisplayHandler.displayPerk(11);
+    }//GEN-LAST:event_perkButton11MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        DisplayHandler.buyPerk();
+    }//GEN-LAST:event_jButton5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1614,8 +1744,7 @@ public class MainGUI extends javax.swing.JFrame {
     public static javax.swing.JList itemList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
@@ -1687,7 +1816,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     public static javax.swing.JLabel lBootPic;
     public static javax.swing.JLabel lHandPic;
     public static javax.swing.JLabel leggingsPic;
@@ -1704,7 +1832,9 @@ public class MainGUI extends javax.swing.JFrame {
     public static javax.swing.JButton perkButton7;
     public static javax.swing.JButton perkButton8;
     public static javax.swing.JButton perkButton9;
-    private javax.swing.JTextPane perkDescription;
+    public static javax.swing.JTextPane perkDescription;
+    public static javax.swing.JLabel perkNameDis;
+    public static javax.swing.JTextField perkPoints;
     public javax.swing.JTextField pointsRemaining;
     public static javax.swing.JLabel rBootPic;
     public static javax.swing.JLabel rHandPic;

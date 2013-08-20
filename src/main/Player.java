@@ -38,9 +38,10 @@ public class Player {
     public int level;
     public int experience;
     public int reqXP;
+    public int perkPoints;
     public int skillPoints;
     
-    public Skill[] classSkills;
+    public Perk[] classSkills;
     
     public final int reqXP_Level2 = 20;
     public final int reqXP_Level3 = 30;
@@ -50,7 +51,7 @@ public class Player {
     public Classes cclass;
     public String name;
     
-    public List<Skill> skills = new ArrayList();
+    public List<Perk> skills = new ArrayList();
     public List<Item> items = new ArrayList();
    
     public Shield right_hand_item;
@@ -103,7 +104,6 @@ public class Player {
         level = 1;
         experience = 1;
         reqXP = reqXP_Level2;
-        skillPoints+=10;
         
         maxhealth = 100;
         currenthealth = maxhealth;
@@ -170,6 +170,8 @@ public class Player {
                 items.get(i).equip(Item.Buff.FIRE_DAMAGE);
             }
         }
+        skillPoints+=10;
+        perkPoints+=10;
         
     }
     
@@ -230,7 +232,7 @@ public class Player {
     }
     
     //adds a skill to the skill list and invokes the method for said skill
-    public void addSkill(Skill s){
+    public void addPerk(Perk s){
         skills.add(s);
         if(s.method!=null){
             try {
@@ -298,17 +300,17 @@ public class Player {
     }
     
     public enum Classes{
-        MAGE(5,13,7,7, new Skill[]{}),
-        WARRIOR(13,5,7,7, new Skill[]{Skill.HEALTH_BOOST, Skill.HEALTH_REGENERATION}),
-        ROGUE(7,7,5,13, new Skill[]{});
+        MAGE(5,13,7,7, new Perk[]{Perk.HEALTH_BOOST, Perk.HEALTH_REGENERATION}),
+        WARRIOR(13,5,7,7, new Perk[]{Perk.HEALTH_BOOST, Perk.HEALTH_REGENERATION}),
+        ROGUE(7,7,5,13, new Perk[]{Perk.HEALTH_BOOST, Perk.HEALTH_REGENERATION});
         
         int strength;
         int intelligence;
         int vitality;
         int dexterity;
-        Skill[] skills;
+        Perk[] skills;
         
-        Classes(int s, int i, int v, int d, Skill[] sa){
+        Classes(int s, int i, int v, int d, Perk[] sa){
             strength =s;
             intelligence = i;
             vitality = v;
@@ -317,18 +319,20 @@ public class Player {
         }
     }
     
-    public enum Skill{
-        HEALTH_REGENERATION("healthRegen"), HEALTH_BOOST("healthBoost");
+    public enum Perk{
+        HEALTH_REGENERATION("healthRegen", "Slowly regenerates health constantly"), HEALTH_BOOST("healthBoost", "Boost your maximum health statistic");
         
         
         public Method method;
         public Method sMethod;
         public String name;
-        Skill(String methodName){
+        public String description;
+        Perk(String methodName, String des){
             name = this.name().replace("_", " ").toLowerCase();
+            description = des;
             try {
-                method = Player.Skill.class.getMethod(methodName);
-                sMethod = Player.Skill.class.getMethod("s"+methodName);
+                method = Player.Perk.class.getMethod(methodName);
+                sMethod = Player.Perk.class.getMethod("s"+methodName);
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
             }
