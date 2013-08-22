@@ -5,10 +5,7 @@ import display.ImageRetriever;
 import java.util.Arrays;
 import javax.swing.JLabel;
 
-/**
- *
- * @author Xenith
- */
+
 public class HeadsUpDisplay {
 
     private static int healthID = -1;

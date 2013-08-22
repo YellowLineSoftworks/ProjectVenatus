@@ -11,10 +11,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import res.SuperImage;
 
-/**
- *
- * @author smiley-penis
- */
+
 public class Display {
     
     private BufferedImage imageMerge;

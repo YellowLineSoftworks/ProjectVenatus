@@ -7,9 +7,7 @@ import java.awt.Point;
  */
 public class Macro {
 
-    /*public static void main(String[] args) {
-        System.out.println(testThisFunction());
-    }*/
+    
     
     //Test if a given number is within two other numbers
     public static boolean within(int test, int n1, int n2) {
