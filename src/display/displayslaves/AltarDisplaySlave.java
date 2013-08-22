@@ -25,14 +25,14 @@ public class AltarDisplaySlave {
         DisplayList();
         
     }
-
+    //Display list of all belifes
     public static void DisplayList() {
         cgui.listModel.clear();
         for(int i = 0; i<currentAltar.beliefs.size();i ++){
             cgui.listModel.addElement(currentAltar.beliefs.get(i).getName());        
         }
     }
-    
+    //Display belife info
     public static void itemInfoPrinter(){
         int index = cgui.ListDisplay.getSelectedIndex();
         cgui.InfoDisplay.setText("\t"+currentAltar.beliefs.get(index).getName()+"\n"+currentAltar.beliefs.get(index).getDescription());
