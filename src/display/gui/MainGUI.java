@@ -34,7 +34,7 @@ public class MainGUI extends javax.swing.JFrame {
     
     public MainGUI() {
         try{
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
         }catch (Exception e){
             System.err.println(e.getMessage());
         }
