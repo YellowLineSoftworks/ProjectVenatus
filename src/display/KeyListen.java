@@ -1,6 +1,8 @@
 
 package display;
 
+import static display.DisplayHandler.disp;
+import static display.DisplayHandler.weapID;
 import java.awt.Point;
 import main.Objects.ActivatableObject;
 import java.awt.event.KeyEvent;
@@ -86,24 +88,28 @@ public class KeyListen implements java.awt.event.KeyListener {
                     maY = DisplayHandler.chary + 40;
                     miX = DisplayHandler.charx;
                     miY = DisplayHandler.chary;
+                    DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary-18);
                     break;
                 case "down" :
                     maX = DisplayHandler.charx + 40;
                     maY = DisplayHandler.chary + 40 + 15;
                     miX = DisplayHandler.charx;
                     miY = DisplayHandler.chary + 40;
+                    DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary+26);
                     break;
                 case "right" :
                     maX = DisplayHandler.charx + 40 + 20;
                     maY = DisplayHandler.chary;
                     miX = DisplayHandler.charx + 40;
                     miY = DisplayHandler.chary + 40;
+                    DisplayHandler.moveWeapon(DisplayHandler.charx+18, DisplayHandler.chary+12);
                     break;
                 case "left" :
                     maX = DisplayHandler.charx;
                     maY = DisplayHandler.chary + 40;
                     miX = DisplayHandler.charx - 15;
                     miY = DisplayHandler.chary;
+                    DisplayHandler.moveWeapon(DisplayHandler.charx-26, DisplayHandler.chary+12);
                     break;
             }
             //Loop through all attackable objects and test if any are within range of the player
@@ -149,6 +155,21 @@ public class KeyListen implements java.awt.event.KeyListener {
     @Override
     public synchronized void keyReleased(KeyEvent e) {
         isMoving = false;
+        if(e.getKeyCode() == KeyEvent.VK_A){
+            switch(Player.mainchar.currentDirection) {
+                case "up":
+                    DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary-12);
+                    break;
+                case "down":
+                    DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary+20);
+                    break;
+                case "right":
+                    DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary+12);
+                    break;
+                case "left":
+                    DisplayHandler.moveWeapon(DisplayHandler.charx-20, DisplayHandler.chary+12);
+            }
+        }
     }
     
 }

@@ -85,6 +85,10 @@ public class DisplayHandler {
          
     }
     
+    public static void moveWeapon(int x, int y) {
+        disp.moveImage(weapID, x, y);
+    }
+    
     public static void moveCharacter(String direction){
         if (!direction.equals(Player.mainchar.currentDirectionDupe)) {
         disp.removeImage(imgid);
