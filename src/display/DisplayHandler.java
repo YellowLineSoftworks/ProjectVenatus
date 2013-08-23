@@ -382,38 +382,6 @@ public class DisplayHandler {
         
     }
     
-    public static void displayWeapon(boolean dis){
-        if(dis){
-            if(disp.imageExists(weapUp)){
-                disp.removeImage(weapUp);
-            }else if(disp.imageExists(weapDown)){
-                disp.removeImage(weapDown);
-            }else if(disp.imageExists(weapLeft)){
-                disp.removeImage(weapLeft);
-            }else if(disp.imageExists(weapRight)){
-                disp.removeImage(weapRight);
-            }
-            switch(Player.mainchar.currentDirection){
-                case "up":
-                    disp.drawImage(weaponSprite, charx , chary- main.Player.mainchar.imgup.getHeight(null));
-                    break;
-                case "down":
-                    disp.drawImage(weaponSprite, charx , chary+ main.Player.mainchar.imgup.getHeight(null));
-                    break;
-                case "right":
-                    disp.drawImage(weaponSprite, charx+ main.Player.mainchar.imgup.getWidth(null) , chary);
-                    break;
-               case "left":
-                    disp.drawImage(weaponSprite, charx- main.Player.mainchar.imgup.getWidth(null) , chary);
-                    break;
-            }
-        }else{
-            if(disp.imageExists(weaponSprite)){
-                disp.removeImage(weaponSprite);
-            }
-        }
-    }
-    
     public static void displayPerks(){
         MainGUI.perkPoints.setText(Integer.toString(Player.mainchar.perkPoints));
         for(int i = 0;i<Player.mainchar.classSkills.length;i++){

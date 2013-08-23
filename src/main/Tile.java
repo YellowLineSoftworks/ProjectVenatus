@@ -2,13 +2,12 @@
 package main;
 
 import display.DisplayHandler;
-import display.Display;
 import homestead.MainBase;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import main.Objects.GameObject;
-import display.Display;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,10 +15,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import main.Objects.ActivatableObject;
-import main.Objects.AttackableObject;
 
 
 public class Tile implements Serializable{
@@ -31,39 +26,45 @@ public class Tile implements Serializable{
     public boolean isDev = false;
     public static Tile currentTile;
     public static List<Tile> allTiles = new ArrayList();
+    public Image background;
+    public static Image currentTileBackground;
     
-    public Tile(int xl, int yl){
+    public Tile(int xl, int yl, Image background){
         location.put("xCord", xl);
         location.put("yCord", yl);
+        this.background = background;
         allTiles.add(this);
     }
     
-    public Tile(int xl, int yl, boolean isMain){
+    public Tile(int xl, int yl, boolean isMain, Image background){
         location.put("xCord", xl);
         location.put("yCord", yl);
+        this.background = background;
         allTiles.add(this);
         this.isMain = isMain;
         objects.add(MainBase.mainbase);
     }
     
-    public Tile(int xl, int yl, List<GameObject> objects){
+    public Tile(int xl, int yl, List<GameObject> objects, Image background){
         location.put("xCord", xl);
         location.put("yCord", yl);
+        this.background = background;
         allTiles.add(this);
         this.objects = objects;
     }
     
-    public Tile(int xl, int yl, boolean isMain, List<GameObject> objects){
+    public Tile(int xl, int yl, boolean isMain, List<GameObject> objects, Image background){
         location.put("xCord", xl);
         location.put("yCord", yl);
+        this.background = background;
         allTiles.add(this);
         this.isMain = isMain;
         objects.add(MainBase.mainbase);
         this.objects = objects;
     }
     
-    public Tile(){
-        
+    public Tile(Image background){
+        this.background = background;
     }
     
     public void addObject(GameObject o){
@@ -94,6 +95,8 @@ public class Tile implements Serializable{
                 DisplayHandler.disp.removeImage(obj.imageID);
             }
         }
+        currentTileBackground = background;
+        DisplayHandler.disp.setBackground(currentTileBackground);
         currentTile = this;
         this.displayAllObjects();
     }

@@ -17,6 +17,8 @@ public class Display {
     private BufferedImage imageMerge;
     private BufferedImage image;
     private BufferedImage layer2;
+    private BufferedImage background;
+    private Graphics backg;
     private Graphics g;
     private Graphics g2;
     private Graphics imageMergeGraphics;
@@ -32,11 +34,19 @@ public class Display {
         g = image.createGraphics();
         layer2 = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g2 = layer2.createGraphics();
-        g.setColor(Color.white);
-        g.fillRect(0, 0, 772, 518);
+        background = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+        backg = background.createGraphics();
+    }
+    
+    public int drawMovableImage(Image i, int x, int y) {
+        SuperImage img = new SuperImage(i, x, y);
+        movableimages.add(img);
+        redrawMovableLayer();
+        return img.id;
     }
     
     private void updateIcon() {
+        imageMergeGraphics.drawImage(background, 0, 0, null);
         imageMergeGraphics.drawImage(image, 0, 0, null);
         imageMergeGraphics.drawImage(layer2, 0, 0, null);
         if(!isDev){
@@ -44,6 +54,13 @@ public class Display {
         }else{
             display.gui.LevelMaker.MainLabel.setIcon(new ImageIcon(imageMerge));
         }
+    }
+    
+    public int drawMovableImage(Image i, int startx, int starty, int endx, int endy, int destx, int desty) {
+        SuperImage img = new SuperImage(i, startx, starty, endx, endy, destx, desty);
+        movableimages.add(img);
+        redrawMovableLayer();
+        return img.id;
     }
     
     public int drawImage(Image i, int x, int y) {
@@ -60,48 +77,6 @@ public class Display {
         g.drawImage(img.image, img.dispx, img.dispy, img.dispx + img.endx - img.startx, img.dispy + img.endy - img.starty, img.startx, img.starty, img.endx, img.endy, null);
         updateIcon();
         return img.id;
-    }
-    
-    public int drawMovableImage(Image i, int x, int y) {
-        SuperImage img = new SuperImage(i, x, y);
-        movableimages.add(img);
-        redrawMovableLayer();
-        return img.id;
-    }
-    
-    public int drawMovableImage(Image i, int startx, int starty, int endx, int endy, int destx, int desty) {
-        SuperImage img = new SuperImage(i, startx, starty, endx, endy, destx, desty);
-        movableimages.add(img);
-        redrawMovableLayer();
-        return img.id;
-    }
-    
-    public void addMovableImage (int id) {
-        int[] temp = new int[movableImagesIDs.length + 1];
-        for (int x = 0; x < movableImagesIDs.length; x++) {
-            temp[x] = movableImagesIDs[x];
-        }
-        temp[movableImagesIDs.length] = id;
-        movableImagesIDs = temp;
-    }
-    
-    public void removeMovableImage (int id) {
-        int[] temp = new int[movableImagesIDs.length - 1];
-        for (int x = 0; x < movableImagesIDs.length; x++) {
-            if (movableImagesIDs[x] != id) {
-                temp[x] = movableImagesIDs[x];
-            }
-        }
-        movableImagesIDs = temp;
-    }
-    
-    private boolean isMovable (int id) {
-        for (int x = 0; x < movableImagesIDs.length; x++) {
-            if (movableImagesIDs[x] == id) {
-                return true;
-            }
-        }
-        return false;
     }
     
     public void removeImage(int id) {
@@ -142,6 +117,39 @@ public class Display {
             }
         }
         updateIcon();
+    }
+    
+    public void setBackground(Image background) {
+        backg.drawImage(background, 0, 0, null);
+        updateIcon();
+    }
+    
+    public void addMovableImage (int id) {
+        int[] temp = new int[movableImagesIDs.length + 1];
+        for (int x = 0; x < movableImagesIDs.length; x++) {
+            temp[x] = movableImagesIDs[x];
+        }
+        temp[movableImagesIDs.length] = id;
+        movableImagesIDs = temp;
+    }
+    
+    public void removeMovableImage (int id) {
+        int[] temp = new int[movableImagesIDs.length - 1];
+        for (int x = 0; x < movableImagesIDs.length; x++) {
+            if (movableImagesIDs[x] != id) {
+                temp[x] = movableImagesIDs[x];
+            }
+        }
+        movableImagesIDs = temp;
+    }
+    
+    private boolean isMovable (int id) {
+        for (int x = 0; x < movableImagesIDs.length; x++) {
+            if (movableImagesIDs[x] == id) {
+                return true;
+            }
+        }
+        return false;
     }
     
     private void redrawMovableLayer() {
@@ -215,18 +223,14 @@ public class Display {
     public void resetBufferedImage() {
         image = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g = image.createGraphics();
-        g.setColor(Color.white);
-        g.fillRect(0, 0, 772, 518);
         images = new ArrayList<>();
         movableimages = new ArrayList<>();
         updateIcon();
     }
     
-    private void refreshLayer1() {
+    public void refreshLayer1() {
         image = new BufferedImage(772, 518, BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g = image.createGraphics();
-        g.setColor(Color.white);
-        g.fillRect(0, 0, 772, 518);
         for (int x = 0; x < images.size(); x++) {
             SuperImage img = images.get(x);
             g.drawImage(img.image, img.dispx, img.dispy, img.dispx + img.endx - img.startx, img.dispy + img.endy - img.starty, img.startx, img.starty, img.endx, img.endy, null);

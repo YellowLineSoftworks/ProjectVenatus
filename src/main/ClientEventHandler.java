@@ -56,13 +56,11 @@ public class ClientEventHandler {
         List<GameObject> objects2 = new ArrayList();
         objects2.add(new Bush(300, 100));
         objects2.add(c2);
-        
-        Tile sTile = new Tile(0, 1, objects2);
-        
+        Tile sTile = new Tile(0, 1, objects2, new ImageRetriever().getImage("/res/Grass Background.png"));
         objects.add(pot);
         objects.add(c);
         objects.add(bush);
-        Tile mainTile = new Tile(0, 0, true, objects);
+        Tile mainTile = new Tile(0, 0, true, objects, new ImageRetriever().getImage("/res/Grass Background.png"));
         mainTile.setCurrentTile();
         //Tile.setCurrentTile("up");
         

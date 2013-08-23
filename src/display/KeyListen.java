@@ -14,9 +14,7 @@ public class KeyListen implements java.awt.event.KeyListener {
     
     public static boolean isMoving = false;
     public static Mover mover = new Mover();
-    public static Thread move = new Thread(mover);
-    public static WeaponWaiter ww = new WeaponWaiter(); 
-    public static Thread weaponWait = new Thread(ww);
+    public static Thread move = new Thread(mover); 
     public static boolean isAttacking = false;
     
     @Override
@@ -30,36 +28,28 @@ public class KeyListen implements java.awt.event.KeyListener {
         isMoving = true;
         if (keyCode == KeyEvent.VK_UP) {
             main.Player.mainchar.currentDirection = "up";
-            //DisplayHandler.moveCharacter("up");
             DisplayHandler.weaponSprite = DisplayHandler.weapUp;
-            //DisplayHandler.displayWeapon(true);
             if(!move.isAlive()) {
                 move.start();
             }
         }
         if (keyCode == KeyEvent.VK_DOWN) {
             main.Player.mainchar.currentDirection = "down";
-            //DisplayHandler.moveCharacter("down");
             DisplayHandler.weaponSprite = DisplayHandler.weapDown;
-            //DisplayHandler.displayWeapon(true);
             if(!move.isAlive()) {
             move.start();
             }
         }
         if (keyCode == KeyEvent.VK_RIGHT) {
             main.Player.mainchar.currentDirection = "right";
-            //DisplayHandler.moveCharacter("right");
             DisplayHandler.weaponSprite = DisplayHandler.weapRight;
-            //DisplayHandler.displayWeapon(true);
             if(!move.isAlive()) {
             move.start();
             }
         }
         if (keyCode == KeyEvent.VK_LEFT) {
             main.Player.mainchar.currentDirection = "left";
-            //DisplayHandler.moveCharacter("left");
             DisplayHandler.weaponSprite = DisplayHandler.weapLeft;
-            //DisplayHandler.displayWeapon(true);
             if(!move.isAlive()) {
             move.start();
             }
@@ -84,9 +74,7 @@ public class KeyListen implements java.awt.event.KeyListener {
             }
         }
         if(keyCode == KeyEvent.VK_A){
-            //DisplayHandler.displayWeapon(true);
-            //isAttacking = true;
-            //weaponWait.start();
+            isAttacking = true;
             //Maximum and minimum x and y values for attacking something
             int maX = -1;
             int maY = -1;
@@ -172,27 +160,8 @@ class Mover implements Runnable {
         while (KeyListen.isMoving) {
             DisplayHandler.moveCharacter(main.Player.mainchar.currentDirection);
             try{Thread.sleep(30);}catch(Exception e) {System.err.println("Broke");}
-            //DisplayHandler.displayWeapon(true);
         }
         KeyListen.move = new Thread(KeyListen.mover);
-    }
-    
-}
-
-class WeaponWaiter implements Runnable{
-
-    @Override
-    public void run() {
-        int counter = 0;
-        while(KeyListen.isAttacking && counter < 10){
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException ex) {
-                System.out.println(ex.getMessage());
-            }
-            counter ++;
-        }
-        //DisplayHandler.displayWeapon(false);
     }
     
 }

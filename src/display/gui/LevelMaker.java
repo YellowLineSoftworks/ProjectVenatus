@@ -4,7 +4,7 @@
  */
 package display.gui;
 
-import display.DisplayHandler;
+import display.ImageRetriever;
 import display.displayslaves.LevelMakerDisplaySlave;
 import static display.displayslaves.LevelMakerDisplaySlave.saveGUI;
 import main.Tile;
@@ -141,7 +141,7 @@ public class LevelMaker extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        LevelMakerDisplaySlave.tile = new Tile();
+        LevelMakerDisplaySlave.tile = new Tile(new ImageRetriever().getImage("/res/Grass Background.png"));
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**

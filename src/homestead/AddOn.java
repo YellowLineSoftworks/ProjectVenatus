@@ -14,6 +14,7 @@ import java.awt.Image;
  */
 public abstract class AddOn extends ActivatableObject{
      public String name;
+     public int imageID = -1;
      
      int upgradelvl = 1;
      
@@ -32,7 +33,8 @@ public abstract class AddOn extends ActivatableObject{
      
      public void printImg(){
          Display fb=display.DisplayHandler.disp;
-         fb.drawImage(image, x, y);
+         fb.removeImage(imageID);
+         imageID = fb.drawImage(image, x, y);
      }
      
     @Override

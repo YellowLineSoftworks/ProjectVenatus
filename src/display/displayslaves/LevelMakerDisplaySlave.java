@@ -5,6 +5,7 @@
 
 package display.displayslaves;
 
+import display.ImageRetriever;
 import display.gui.AddWorldObjectGUI;
 import display.gui.LevelMaker;
 import display.gui.SaveGUI;
@@ -34,7 +35,6 @@ public class LevelMakerDisplaySlave {
     
     public static boolean saved = false;
     
-    
     public static void main(String[] args){
         /*makeLists();
         addWorldObject();
@@ -48,7 +48,7 @@ public class LevelMakerDisplaySlave {
         cgui = new LevelMaker();
         cgui.setVisible(true);
         makeLists();
-        tile = new Tile();
+        tile = new Tile(new ImageRetriever().getImage("/res/Grass Background.png"));
         tile.isDev = true;
     }
     
@@ -106,5 +106,4 @@ public class LevelMakerDisplaySlave {
         tile.serialize();
         saveGUI.dispose();
     }
-    
 }

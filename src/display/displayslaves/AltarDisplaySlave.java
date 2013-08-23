@@ -5,6 +5,7 @@
 
 package display.displayslaves;
 
+import display.DisplayHandler;
 import homestead.Altar;
 import java.util.ArrayList;
 import java.util.List;

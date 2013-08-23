@@ -33,7 +33,7 @@ public class MainBase extends ActivatableObject{
     public static MainBase mainbase;
     
     public List<AddOn> addons = new ArrayList();
-    public Tile baseTile = new Tile();
+    public Tile baseTile = new Tile(new ImageRetriever().getImage("/res/Wood Background.png"));
     int defence;
     
     public boolean inBase = false;
@@ -102,6 +102,7 @@ public class MainBase extends ActivatableObject{
                 return false;
         }
     }
+    
     //Returns info for display on GUI
     public String display(){
         String resCount;
@@ -129,7 +130,6 @@ public class MainBase extends ActivatableObject{
     }
     
     public void drawElements(){
-        display.DisplayHandler.disp.resetBufferedImage();
         for(int i = 0; i<addons.size();i++){
             addons.get(i).printImg();
         }
