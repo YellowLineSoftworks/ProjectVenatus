@@ -130,12 +130,12 @@ public class DisplayHandler {
                         charx = 732;
                     } else {
                         charx = 0;
-                        imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
                         weapID = disp.drawImage(weapRight, charx+12, chary+12);
+                        imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
                     }
                 } else {
-                    imgid = disp.drawImage(Player.mainchar.imgright, charx, chary); 
-                    weapID = disp.drawImage(weapRight, charx+12, chary+12);                   
+                    weapID = disp.drawImage(weapRight, charx+12, chary+12);           
+                    imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);         
                 }
                 break;
            case "left":
@@ -194,12 +194,12 @@ public class DisplayHandler {
                             charx = 732;
                         } else {
                             charx = 0;
-                            disp.moveImage(imgid, charx, chary);
                             disp.moveImage(weapID, charx+12, chary+12);
+                            disp.moveImage(imgid, charx, chary);
                         }
                     } else {
-                        disp.moveImage(imgid, charx, chary);
                         disp.moveImage(weapID, charx+12, chary+12);
+                        disp.moveImage(imgid, charx, chary);
                     }
                     break;
                case "left":
