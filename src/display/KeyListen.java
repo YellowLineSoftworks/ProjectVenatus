@@ -10,12 +10,12 @@ import main.Macro;
 import main.Tile;
 
 
+
 public class KeyListen implements java.awt.event.KeyListener {
     
     public static boolean isMoving = false;
     public static Mover mover = new Mover();
     public static Thread move = new Thread(mover); 
-    public static boolean isAttacking = false;
     
     @Override
     public synchronized void keyTyped(KeyEvent e) {
@@ -74,7 +74,6 @@ public class KeyListen implements java.awt.event.KeyListener {
             }
         }
         if(keyCode == KeyEvent.VK_A){
-            isAttacking = true;
             //Maximum and minimum x and y values for attacking something
             int maX = -1;
             int maY = -1;
@@ -153,7 +152,6 @@ public class KeyListen implements java.awt.event.KeyListener {
     }
     
 }
-
 class Mover implements Runnable {
     
     public void run() {

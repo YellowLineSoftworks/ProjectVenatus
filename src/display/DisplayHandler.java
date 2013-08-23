@@ -41,6 +41,7 @@ public class DisplayHandler {
     public static int imgdownID = -1;
     public static int imgrightID = -1;
     public static int imgleftID = -1;
+    public static int weapID = -1;
     
     public static int selectedConsumeableSlot = 1;
     
@@ -75,7 +76,6 @@ public class DisplayHandler {
          mgui.Vitality.setText("" + Player.mainchar.vitality);
          mgui.Strength.setText("" + Player.mainchar.strength);
          
-         
          mgui.pointsRemaining.setText("" + Player.mainchar.skillPoints);
          mgui.skillsDexterity.setText("" + Player.mainchar.dexterity);
          mgui.skillsIntelligence.setText("" + Player.mainchar.intelligence);
@@ -86,11 +86,9 @@ public class DisplayHandler {
     }
     
     public static void moveCharacter(String direction){
-        if(KeyListen.isAttacking){
-            //displayWeapon(true);
-        }
         if (!direction.equals(Player.mainchar.currentDirectionDupe)) {
         disp.removeImage(imgid);
+        disp.removeImage(weapID);
         switch(direction){
             case "up":
                 Player.mainchar.currentDirectionDupe = "up";
@@ -100,9 +98,11 @@ public class DisplayHandler {
                         chary = 0;
                     } else {
                         chary = 478;
+                        weapID = disp.drawImage(weapUp, charx+12, chary-12);
                         imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
                     }
                 } else {
+                    weapID = disp.drawImage(weapUp, charx+12, chary-12);
                     imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
                 }
                 break;
@@ -115,9 +115,11 @@ public class DisplayHandler {
                     } else {
                         chary = 0;
                         imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                        weapID = disp.drawImage(weapDown, charx+12, chary+20);
                     }
                 } else {
                     imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                    weapID = disp.drawImage(weapDown, charx+12, chary+20);
                 }
                 break;
             case "right":
@@ -129,9 +131,11 @@ public class DisplayHandler {
                     } else {
                         charx = 0;
                         imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
+                        weapID = disp.drawImage(weapRight, charx+12, chary+12);
                     }
                 } else {
-                    imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);                    
+                    imgid = disp.drawImage(Player.mainchar.imgright, charx, chary); 
+                    weapID = disp.drawImage(weapRight, charx+12, chary+12);                   
                 }
                 break;
            case "left":
@@ -143,9 +147,11 @@ public class DisplayHandler {
                     } else {
                         charx = 738;
                         imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                        weapID = disp.drawImage(weapLeft, charx-20, chary+12);
                     }
                 } else {
                     imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                    weapID = disp.drawImage(weapLeft, charx-20, chary+12);
                 }
                 break;
         }
@@ -158,9 +164,11 @@ public class DisplayHandler {
                             chary = 0;
                         } else {
                             chary = 478;
+                            disp.moveImage(weapID, charx+12, chary-12);
                             disp.moveImage(imgid, charx, chary);
                         }
                     } else {
+                        disp.moveImage(weapID, charx+12, chary-12);
                         disp.moveImage(imgid, charx, chary);
                     }
                     break;
@@ -172,9 +180,11 @@ public class DisplayHandler {
                         } else {
                             chary = 0;
                             disp.moveImage(imgid, charx, chary);
+                            disp.moveImage(weapID, charx+12, chary+20);
                         }
                     } else {
                         disp.moveImage(imgid, charx, chary);
+                        disp.moveImage(weapID, charx+12, chary+20);
                     }
                     break;
                 case "right":
@@ -185,9 +195,11 @@ public class DisplayHandler {
                         } else {
                             charx = 0;
                             disp.moveImage(imgid, charx, chary);
+                            disp.moveImage(weapID, charx+12, chary+12);
                         }
                     } else {
                         disp.moveImage(imgid, charx, chary);
+                        disp.moveImage(weapID, charx+12, chary+12);
                     }
                     break;
                case "left":
@@ -198,9 +210,11 @@ public class DisplayHandler {
                         } else {
                             charx = 732;
                             disp.moveImage(imgid, charx, chary);
+                            disp.moveImage(weapID, charx-20, chary+12);
                         }
                     } else {
                         disp.moveImage(imgid, charx, chary);
+                            disp.moveImage(weapID, charx-20, chary+12);
                     }
                     break;
             }

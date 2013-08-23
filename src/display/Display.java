@@ -135,9 +135,11 @@ public class Display {
     
     public void removeMovableImage (int id) {
         int[] temp = new int[movableImagesIDs.length - 1];
+        int tempCounter = 0;
         for (int x = 0; x < movableImagesIDs.length; x++) {
             if (movableImagesIDs[x] != id) {
-                temp[x] = movableImagesIDs[x];
+                temp[tempCounter] = movableImagesIDs[x];
+                tempCounter++;
             }
         }
         movableImagesIDs = temp;
