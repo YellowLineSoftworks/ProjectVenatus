@@ -5,9 +5,10 @@ package worldobjects.Enemies;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
+import main.Objects.AttackableObject;
 
 
-public class Enemy {
+public class Enemy extends AttackableObject{
     public int health;
     public Image img;
     public String name;
@@ -15,12 +16,9 @@ public class Enemy {
     
     public static List<Enemy> enemies = new ArrayList();
     
-    public void attacked(){
-        health -= main.Player.mainchar.strength+main.Player.mainchar.left_hand_item.attack;
-    }
     
     public enum Type{
-        STAGNANT,RANGED,MELEE
+        STAGNANT
     }
     
 }
