@@ -25,5 +25,12 @@ public class Macro {
         int y = (maY + miY)/2;
         return new Point(x, y);
     }
+    
+    //Enumeration of basic directions
+    public enum Direction{
+        UP,DOWN,LEFT,RIGHT
+    }
+    
+    
 
 }

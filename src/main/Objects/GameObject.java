@@ -22,22 +22,27 @@ public abstract class GameObject {
     
     public static List<GameObject> objects = getObjects();
     
+    
     static List<GameObject> getObjects(){
         List<GameObject> finall = new ArrayList();
         return finall;
     }
     
+    //draws object image on the frame
     public void displayObject() {
         imageID = DisplayHandler.disp.drawImage(image, x, y);
     }
     
+    //draws object image on the frame and removes the last image of that object
     public void redisplayObject() {
         DisplayHandler.disp.removeImage(imageID);
         imageID = DisplayHandler.disp.drawImage(image, x, y);
     }
     
+    //abstract destoy method
     public abstract void destroy();
     
+    //initializes the display variables for the objetc
     public void init(){
         miX = x;
         miY = y;

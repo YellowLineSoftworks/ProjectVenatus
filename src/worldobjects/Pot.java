@@ -16,6 +16,7 @@ public class Pot extends main.Objects.AttackableObject {
     
     public List<Item> items = new ArrayList();
     
+    //Constructor takes x and y cords
     public Pot(int x, int y) {
         health = 1;
         armor = 0;
@@ -25,6 +26,7 @@ public class Pot extends main.Objects.AttackableObject {
         init();
     }
     
+    //Constructor takes a list of items for the pot to drop
     public Pot(int x, int y, List<Item> items) {
         health = 1;
         armor = 0;
@@ -35,6 +37,7 @@ public class Pot extends main.Objects.AttackableObject {
         init();
     }
     
+    //drops items and gets rid of pot
     @Override
     public void destroy() {
         //Replace the pot with a reward to the player, but only sometimes.

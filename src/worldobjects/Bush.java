@@ -20,6 +20,7 @@ public class Bush extends AttackableObject{
     
     public List<Item> items = new ArrayList();
     
+    //Constructor takes x and y cords for location on tile
     public Bush(int x, int y) {
         health = 1;
         armor = 0;
@@ -29,6 +30,7 @@ public class Bush extends AttackableObject{
         init();
     }
     
+    //Constructor takes a item list to drop when the bush is destroyed
     public Bush(int x, int y, List<Item> items) {
         health = 1;
         armor = 0;

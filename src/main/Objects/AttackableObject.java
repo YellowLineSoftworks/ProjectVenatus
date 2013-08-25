@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import main.Tile;
 
-/**
- * @author Xenith
- */
+
 public abstract class AttackableObject extends GameObject {
     
     public static List<AttackableObject> attackableObjects = new ArrayList();
     public int health;
     public int armor;
+    
+    
     
     public int calculateDamageTaken(int armor) {
         
@@ -31,6 +31,7 @@ public abstract class AttackableObject extends GameObject {
         attackableObjects.add(this);
     }
     
+    //Gets rid of a attackable object
     @Override
     public void destroy(){
         attackableObjects.remove(this);
@@ -39,6 +40,7 @@ public abstract class AttackableObject extends GameObject {
         Tile.currentTile.displayAllObjects();
     }
     
+    //method is called when the player presses A in front of this object
     public void attacked(){
         health -= calculateDamageTaken(armor);
         if (health <= 0) {

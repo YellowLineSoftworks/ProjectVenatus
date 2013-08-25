@@ -9,20 +9,20 @@ import main.Tile;
 
 
 public abstract class ActivatableObject extends GameObject{
-    public static List<ActivatableObject> activatableObjects = new ArrayList();
     
     
     public ActivatableObject(){
-        activatableObjects.add(this);
+        //activatableObjects.add(this);
     }
     
     
     
-    
+    //abstract activate method thats called when the object is activated
     public abstract void activate();
+    
+    
     @Override
     public void destroy(){
-        activatableObjects.remove(this);
         Tile.currentTile.removeObject(this);
         DisplayHandler.disp.removeImage(imageID);
     }

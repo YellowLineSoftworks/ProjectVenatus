@@ -5,9 +5,7 @@ import display.DisplayHandler;
 import items.Item;
 import main.Objects.ActivatableObject;
 
-/**
- * @author Xenith
- */
+//Objects that are dropped by world objects that represent an Item in game;
 public class FloatingItem extends ActivatableObject {
     
     public Item i;
@@ -21,6 +19,7 @@ public class FloatingItem extends ActivatableObject {
         Tile.currentTile.addObject(this);
     }
     
+    //adds item to inventory
     @Override
     public void activate() {
         main.Player.mainchar.addItem(i);
