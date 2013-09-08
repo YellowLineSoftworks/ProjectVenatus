@@ -16,11 +16,13 @@ import javax.swing.KeyStroke;
 import main.Player;
 import homestead.AddOn;
 import java.awt.Image;
+import java.io.File;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import main.ClientEventHandler;
 import main.HeadsUpDisplay;
-import main.Player.Perk;
 import main.Tile;
 
 
@@ -67,6 +69,7 @@ public class DisplayHandler {
         HeadsUpDisplay.initializeHUD();
         DisplayHandler.displayStats();
         DisplayHandler.displayPerks();
+        Image finalImage = null;
     }
     
     public static void displayStats() {

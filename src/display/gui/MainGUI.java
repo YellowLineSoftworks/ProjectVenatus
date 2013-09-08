@@ -5,15 +5,11 @@
 package display.gui;
 
 import display.DisplayHandler;
-import display.DisplayHandler;
-import display.DisplayHandler;
 import homestead.MainBase;
 import items.Item;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
 import items.Armor;
-import java.awt.Window;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import main.ClientEventHandler;
@@ -26,6 +22,7 @@ import main.Tile;
  */
 public class MainGUI extends javax.swing.JFrame {
 
+    private boolean firstTabChange = true;
     public static DefaultListModel itemListModel = new DefaultListModel(); 
     public static DefaultListModel addonListModel = new DefaultListModel(); 
     public static DefaultListModel perkListModel = new DefaultListModel();
@@ -39,9 +36,6 @@ public class MainGUI extends javax.swing.JFrame {
             System.err.println(e.getMessage());
         }
         initComponents();
-        
-        
-        
         this.setFocusTraversalKeysEnabled(false);
     }
 
@@ -61,8 +55,6 @@ public class MainGUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         MainTabbedPane = new javax.swing.JTabbedPane();
         MainPanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
         ItemsPanel = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -229,22 +221,21 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
+        MainPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                MainPanelComponentShown(evt);
+            }
+        });
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
+            .addGap(0, 772, Short.MAX_VALUE)
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 519, Short.MAX_VALUE)
         );
 
         MainTabbedPane.addTab("Game", MainPanel);
@@ -1068,7 +1059,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1086,7 +1077,7 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(jLabel15)
                         .addGap(100, 100, 100)
                         .addComponent(jLabel16)
-                        .addGap(0, 165, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1552,7 +1543,7 @@ public class MainGUI extends javax.swing.JFrame {
     private void MainTabbedPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainTabbedPaneMouseClicked
         DisplayHandler.addonListPrinter();
     }//GEN-LAST:event_MainTabbedPaneMouseClicked
-
+    
     private void Con1PicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Con1PicMouseClicked
         DisplayHandler.itemListPrinter(1);
     }//GEN-LAST:event_Con1PicMouseClicked
@@ -1674,6 +1665,10 @@ public class MainGUI extends javax.swing.JFrame {
         DisplayHandler.buyPerk();
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void MainPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_MainPanelComponentShown
+        DisplayHandler.disp.updateIcon();
+    }//GEN-LAST:event_MainPanelComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -1778,8 +1773,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    public static javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList jList2;
     private javax.swing.JList jList3;
     public static javax.swing.JPanel jPanel1;

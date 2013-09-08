@@ -16,15 +16,13 @@ import items.Weapon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import main.Objects.GameObject;
 import worldobjects.Bush;
 import worldobjects.Chest;
 import worldobjects.Pot;
 
 
-public class ClientEventHandler {
+public class ClientEventHandler implements Runnable {
     
     public static MainGUI mgui;
     public static String[] arguments;
@@ -40,7 +38,6 @@ public class ClientEventHandler {
     }
     
     public static void secondaryMain() {
-        
         mgui = new MainGUI();
         mgui.setVisible(true);
         Player.mainchar = new Player(NewGame.playerName, NewGame.playerClass);
@@ -62,9 +59,14 @@ public class ClientEventHandler {
         objects.add(bush);
         Tile mainTile = new Tile(0, 0, true, objects, new ImageRetriever().getImage("/res/Grass Background.png"));
         mainTile.setCurrentTile();
-        //Tile.setCurrentTile("up");
-        
-        
+        //This line always needs to be at the bottom of this function
+        new Thread(new ClientEventHandler()).start();
+    }
+    
+    @Override
+    public void run() {
+        try{Thread.sleep(50);}catch(Exception e){}
+        DisplayHandler.disp.updateIcon();
     }
     
 }

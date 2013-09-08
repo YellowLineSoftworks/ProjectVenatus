@@ -5,11 +5,8 @@
 package items;
 
 import java.lang.reflect.Method;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import display.ImageRetriever;
-import java.lang.reflect.InvocationTargetException;
 
 
 public class Consumeable extends Item{
@@ -29,7 +26,7 @@ public class Consumeable extends Item{
             } catch (Exception ex) {System.out.println(ex.getMessage());}
         }else{
             try {
-                thisitem.method.invoke(this, thisitem.params);
+                thisitem.method.invoke(this, (Object)thisitem.params);
             } catch (Exception ex) {System.out.println(ex.getMessage());}
             
         }

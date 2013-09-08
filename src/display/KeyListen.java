@@ -1,8 +1,6 @@
 
 package display;
 
-import static display.DisplayHandler.disp;
-import static display.DisplayHandler.weapID;
 import java.awt.Point;
 import main.Objects.ActivatableObject;
 import java.awt.event.KeyEvent;

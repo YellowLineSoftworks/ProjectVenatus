@@ -1,10 +1,8 @@
 package display;
 
 import display.gui.MainGUI;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +12,7 @@ import res.SuperImage;
 
 public class Display {
     
-    private BufferedImage imageMerge;
+    public BufferedImage imageMerge;
     private BufferedImage image;
     private BufferedImage layer2;
     private BufferedImage background;
@@ -45,14 +43,16 @@ public class Display {
         return img.id;
     }
     
-    private void updateIcon() {
+    public void updateIcon() {
+        if (MainGUI.MainTabbedPane.getSelectedIndex() == 0) {
         imageMergeGraphics.drawImage(background, 0, 0, null);
         imageMergeGraphics.drawImage(image, 0, 0, null);
         imageMergeGraphics.drawImage(layer2, 0, 0, null);
         if(!isDev){
-            MainGUI.jLabel9.setIcon(new ImageIcon(imageMerge));
+            MainGUI.MainPanel.getGraphics().drawImage(imageMerge, 0, 0, null);
         }else{
             display.gui.LevelMaker.MainLabel.setIcon(new ImageIcon(imageMerge));
+        }
         }
     }
     
