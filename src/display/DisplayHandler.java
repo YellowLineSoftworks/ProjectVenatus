@@ -101,10 +101,18 @@ public class DisplayHandler {
                 Player.mainchar.currentDirectionDupe = "up";
                 chary -=5;
                 if (chary < 0) {
-                    if(!Tile.setCurrentTile("up")) {
-                        chary = 0;
+                    if (!MainBase.mainbase.inBase){
+                        if(!Tile.setCurrentTile("up")) {
+                            chary = 0;
+                        } else {
+                            chary = 478;
+                            weapID = disp.drawImage(weapUp, charx+12, chary-12);
+                            imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
+                        }
                     } else {
-                        chary = 478;
+                        MainBase.mainbase.exitBase();
+                        charx = 315;
+                        chary = 340;
                         weapID = disp.drawImage(weapUp, charx+12, chary-12);
                         imgid = disp.drawImage(Player.mainchar.imgup, charx, chary);
                     }
@@ -117,10 +125,18 @@ public class DisplayHandler {
                 Player.mainchar.currentDirectionDupe = "down";
                 chary +=5;
                 if (chary > 478) {
-                    if(!Tile.setCurrentTile("down")) {
-                        chary = 478;
+                    if (!MainBase.mainbase.inBase){
+                        if(!Tile.setCurrentTile("down")) {
+                            chary = 478;
+                        } else {
+                            chary = 0;
+                            imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
+                            weapID = disp.drawImage(weapDown, charx+12, chary+20);
+                        }
                     } else {
-                        chary = 0;
+                        MainBase.mainbase.exitBase();
+                        charx = 315;
+                        chary = 340;
                         imgid = disp.drawImage(Player.mainchar.imgdown, charx, chary);
                         weapID = disp.drawImage(weapDown, charx+12, chary+20);
                     }
@@ -133,10 +149,18 @@ public class DisplayHandler {
                 Player.mainchar.currentDirectionDupe = "right";
                 charx+=5;
                 if (charx > 732) {
-                    if(!Tile.setCurrentTile("right")) {
-                        charx = 732;
+                    if (!MainBase.mainbase.inBase){
+                        if(!Tile.setCurrentTile("right")) {
+                            charx = 732;
+                        } else {
+                            charx = 0;
+                            weapID = disp.drawImage(weapRight, charx+12, chary+12);
+                            imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
+                        }
                     } else {
-                        charx = 0;
+                        MainBase.mainbase.exitBase();
+                        charx = 315;
+                        chary = 340;
                         weapID = disp.drawImage(weapRight, charx+12, chary+12);
                         imgid = disp.drawImage(Player.mainchar.imgright, charx, chary);
                     }
@@ -149,10 +173,18 @@ public class DisplayHandler {
                 Player.mainchar.currentDirectionDupe = "left";
                 charx-=5;
                 if (charx < 0) {
-                    if(!Tile.setCurrentTile("left")) {
-                        charx = 0;
+                    if (!MainBase.mainbase.inBase){
+                        if(!Tile.setCurrentTile("left")) {
+                            charx = 0;
+                        } else {
+                            charx = 738;
+                            imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
+                            weapID = disp.drawImage(weapLeft, charx-20, chary+12);
+                        }
                     } else {
-                        charx = 738;
+                        MainBase.mainbase.exitBase();
+                        charx = 315;
+                        chary = 340;
                         imgid = disp.drawImage(Player.mainchar.imgleft, charx, chary);
                         weapID = disp.drawImage(weapLeft, charx-20, chary+12);
                     }
@@ -167,13 +199,22 @@ public class DisplayHandler {
                 case "up":
                     chary -=5;
                     if (chary < 0) {
-                        if(!Tile.setCurrentTile("up")) {
-                            chary = 0;
+                        if (!MainBase.mainbase.inBase){
+                            if(!Tile.setCurrentTile("up")) {
+                                chary = 0;
+                            } else {
+                                chary = 478;
+                                disp.moveImage(weapID, charx+12, chary-12);
+                                disp.moveImage(imgid, charx, chary);
+                            }
                         } else {
-                            chary = 478;
+                            MainBase.mainbase.exitBase();
+                            charx = 315;
+                            chary = 340;
                             disp.moveImage(weapID, charx+12, chary-12);
                             disp.moveImage(imgid, charx, chary);
                         }
+                        
                     } else {
                         disp.moveImage(weapID, charx+12, chary-12);
                         disp.moveImage(imgid, charx, chary);
@@ -182,10 +223,18 @@ public class DisplayHandler {
                 case "down":
                     chary +=5;
                     if (chary > 478) {
-                        if(!Tile.setCurrentTile("down")) {
-                            chary = 478;
+                        if (!MainBase.mainbase.inBase){
+                            if(!Tile.setCurrentTile("down")) {
+                                chary = 478;
+                            } else {
+                                chary = 0;
+                                disp.moveImage(imgid, charx, chary);
+                                disp.moveImage(weapID, charx+12, chary+20);
+                            }
                         } else {
-                            chary = 0;
+                            MainBase.mainbase.exitBase();
+                            charx = 315;
+                            chary = 340;
                             disp.moveImage(imgid, charx, chary);
                             disp.moveImage(weapID, charx+12, chary+20);
                         }
@@ -197,10 +246,18 @@ public class DisplayHandler {
                 case "right":
                     charx+=5;
                     if (charx > 732) {
-                        if(!Tile.setCurrentTile("right")) {
-                            charx = 732;
+                        if (!MainBase.mainbase.inBase){
+                            if(!Tile.setCurrentTile("right")) {
+                                charx = 732;
+                            } else {
+                                charx = 0;
+                                disp.moveImage(weapID, charx+12, chary+12);
+                                disp.moveImage(imgid, charx, chary);
+                            }
                         } else {
-                            charx = 0;
+                            MainBase.mainbase.exitBase();
+                            charx = 315;
+                            chary = 340;
                             disp.moveImage(weapID, charx+12, chary+12);
                             disp.moveImage(imgid, charx, chary);
                         }
@@ -212,16 +269,24 @@ public class DisplayHandler {
                case "left":
                     charx-=5;
                     if (charx < 0) {
-                        if(!Tile.setCurrentTile("left")) {
-                            charx = 0;
+                        if (!MainBase.mainbase.inBase){
+                            if(!Tile.setCurrentTile("left")) {
+                                charx = 0;
+                            } else {
+                                charx = 732;
+                                disp.moveImage(imgid, charx, chary);
+                                disp.moveImage(weapID, charx-20, chary+12);
+                            }
                         } else {
-                            charx = 732;
+                            MainBase.mainbase.exitBase();
+                            charx = 315;
+                            chary = 340;
                             disp.moveImage(imgid, charx, chary);
                             disp.moveImage(weapID, charx-20, chary+12);
                         }
                     } else {
                         disp.moveImage(imgid, charx, chary);
-                            disp.moveImage(weapID, charx-20, chary+12);
+                        disp.moveImage(weapID, charx-20, chary+12);
                     }
                     break;
             }
