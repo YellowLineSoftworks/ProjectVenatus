@@ -85,7 +85,7 @@ public class KeyListen implements java.awt.event.KeyListener {
                     maX = DisplayHandler.charx + 40;
                     maY = DisplayHandler.chary + 40;
                     miX = DisplayHandler.charx;
-                    miY = DisplayHandler.chary;
+                    miY = DisplayHandler.chary - 20;
                     DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary-18);
                     break;
                 case "down" :
@@ -96,7 +96,7 @@ public class KeyListen implements java.awt.event.KeyListener {
                     DisplayHandler.moveWeapon(DisplayHandler.charx+12, DisplayHandler.chary+26);
                     break;
                 case "right" :
-                    maX = DisplayHandler.charx + 40 + 20;
+                    maX = DisplayHandler.charx + 40 + 10;
                     maY = DisplayHandler.chary;
                     miX = DisplayHandler.charx + 40;
                     miY = DisplayHandler.chary + 40;
@@ -105,7 +105,7 @@ public class KeyListen implements java.awt.event.KeyListener {
                 case "left" :
                     maX = DisplayHandler.charx;
                     maY = DisplayHandler.chary + 40;
-                    miX = DisplayHandler.charx - 15;
+                    miX = DisplayHandler.charx - 25;
                     miY = DisplayHandler.chary;
                     DisplayHandler.moveWeapon(DisplayHandler.charx-26, DisplayHandler.chary+12);
                     break;
