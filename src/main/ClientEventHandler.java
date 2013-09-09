@@ -16,6 +16,7 @@ import items.Weapon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.JOptionPane;
 import main.Objects.GameObject;
 import worldobjects.Bush;
 import worldobjects.Chest;
@@ -59,6 +60,9 @@ public class ClientEventHandler implements Runnable {
         objects.add(bush);
         Tile mainTile = new Tile(0, 0, true, objects, new ImageRetriever().getImage("/res/Grass Background.png"));
         mainTile.setCurrentTile();
+        JOptionPane.showMessageDialog(mgui, "Use Arrow Keys to move,\n A to attack and E to activate\n\n"
+                + "There are only two tiles, This one and the one above it.\n\n "
+                + "Somtimes you need to reselec the game menu\nin order to activate keylistener");
         //This line always needs to be at the bottom of this function
         new Thread(new ClientEventHandler()).start();
     }
