@@ -2,6 +2,7 @@
 package main.Objects;
 
 import display.DisplayHandler;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 import main.Objects.GameObject;
@@ -15,7 +16,9 @@ public abstract class ActivatableObject extends GameObject{
         //activatableObjects.add(this);
     }
     
-    
+    public ActivatableObject(Image i, int x, int y, boolean display) {
+        super(i, x, y, display);
+    }
     
     //abstract activate method thats called when the object is activated
     public abstract void activate();
@@ -24,7 +27,7 @@ public abstract class ActivatableObject extends GameObject{
     @Override
     public void destroy(){
         Tile.currentTile.removeObject(this);
-        DisplayHandler.disp.removeImage(imageID);
+        DisplayHandler.disp.removeImage(image.id);
     }
     
 }

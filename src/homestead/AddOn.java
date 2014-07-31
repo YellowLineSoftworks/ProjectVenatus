@@ -4,8 +4,8 @@
  */
 package homestead;
 
+import graphics.swing.BufferedJPanel;
 import main.Objects.ActivatableObject;
-import display.Display;
 import java.awt.Image;
 
 /**
@@ -14,27 +14,21 @@ import java.awt.Image;
  */
 public abstract class AddOn extends ActivatableObject{
      public String name;
-     public int imageID = -1;
      
      int upgradelvl = 1;
      
      public AddOn(){
          super();
-         
+     }
+     
+     public AddOn(Image i, int x, int y, boolean display) {
+         super(i, x, y, display);
      }
      
      public boolean upgrade(){
         display.DisplayHandler.addonInfoPrinter();
         display.DisplayHandler.resourceInfoDisplayer();
         return true;
-     }
-     
-     public String display(){return "";}
-     
-     public void printImg(){
-         Display fb=display.DisplayHandler.disp;
-         fb.removeImage(imageID);
-         imageID = fb.drawImage(image, x, y);
      }
      
     @Override

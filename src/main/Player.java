@@ -217,7 +217,6 @@ public class Player {
                         con4 = (Consumeable) i;
                         break;
                 }
-                System.out.println();
                 break;
                 
         }
@@ -238,6 +237,7 @@ public class Player {
             try {
                 s.method.invoke(this);
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.out.println(ex.getMessage());
             }
         }
@@ -334,22 +334,23 @@ public class Player {
                 method = Player.Perk.class.getMethod(methodName);
                 sMethod = Player.Perk.class.getMethod("s"+methodName);
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.err.println(ex.getMessage());
             }
         }
         
-        void healthRegen(){
+        public void healthRegen(){
             
         }
-        void shealthRegen(){
+        public void shealthRegen(){
             
         }
         
-        void healthBoost(){
+        public void healthBoost(){
             mainchar.maxhealth+=10;
         }
         
-        void shealthBoost(){
+        public void shealthBoost(){
             mainchar.maxhealth-=10;
         }
         

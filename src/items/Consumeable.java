@@ -35,16 +35,15 @@ public class Consumeable extends Item{
     
     public enum Cnsm{
         POTION("drinkPotion", new ImageIcon(new ImageRetriever().getImage("/res/Items/Consumeables/Health Potion.png")), new String[] {"10"});
-        
         ImageIcon img;
-        
         Method method;
         String[] params;
         Cnsm(String mname, ImageIcon i){
             img = i;
             try {
-                method = Consumeable.Cnsm.class.getMethod(mname);
+                method = Consumeable.Cnsm.class.getMethod(mname, String.class);
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.err.println(ex.getMessage());
             } 
         }
@@ -52,8 +51,9 @@ public class Consumeable extends Item{
             params = para;
             img = i;
             try {
-                method = Consumeable.Cnsm.class.getMethod(mname);
+                method = Consumeable.Cnsm.class.getMethod(mname, String.class);
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.err.println(ex.getMessage());
             } 
         }

@@ -6,6 +6,7 @@
 package main.Objects;
 
 import display.DisplayHandler;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 import main.Tile;
@@ -17,7 +18,14 @@ public abstract class AttackableObject extends GameObject {
     public int health;
     public int armor;
     
+    public AttackableObject() {
+        attackableObjects.add(this);
+    }
     
+    public AttackableObject(Image image, int x, int y, boolean display) {
+        super(image, x, y, display);
+        attackableObjects.add(this);
+    }
     
     public int calculateDamageTaken(int armor) {
         
@@ -27,17 +35,12 @@ public abstract class AttackableObject extends GameObject {
         
     }
     
-    public AttackableObject() {
-        attackableObjects.add(this);
-    }
-    
     //Gets rid of a attackable object
     @Override
     public void destroy(){
         attackableObjects.remove(this);
         Tile.currentTile.objects.remove(this);
-        DisplayHandler.disp.removeImage(imageID);
-        Tile.currentTile.displayAllObjects();
+        DisplayHandler.disp.removeImage(image.id);
     }
     
     //method is called when the player presses A in front of this object

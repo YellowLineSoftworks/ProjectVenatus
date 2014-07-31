@@ -21,22 +21,18 @@ public class Bush extends AttackableObject{
     public List<Item> items = new ArrayList();
     
     //Constructor takes x and y cords for location on tile
-    public Bush(int x, int y) {
+    public Bush(int x, int y, boolean display) {
+        super(new ImageRetriever().getImage("/res/World Objects/Bush.png"), x, y, display);
         health = 1;
         armor = 0;
-        image = new ImageRetriever().getImage("/res/World Objects/Bush.png");
-        this.x = x;
-        this.y = y;
         init();
     }
     
     //Constructor takes a item list to drop when the bush is destroyed
-    public Bush(int x, int y, List<Item> items) {
+    public Bush(int x, int y, List<Item> items, boolean display) {
+        super(new ImageRetriever().getImage("/res/World Objects/Bush.png"), x, y, display);
         health = 1;
         armor = 0;
-        image = new ImageRetriever().getImage("/res/World Objects/Bush.png");
-        this.x = x;
-        this.y = y;
         this.items = items;
         init();
     }

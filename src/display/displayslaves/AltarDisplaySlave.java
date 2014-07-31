@@ -43,6 +43,9 @@ public class AltarDisplaySlave {
     public static void convert(){
         currentAltar.setBelief(currentAltar.beliefs.get(cgui.ListDisplay.getSelectedIndex()));
         cgui.dispose();
+        System.out.println("Method convert() in AltarDisplaySlave is calling Mainbase.mainbase.drawElements(). This uses the display() function"
+                + "under object (formerly printImg, which removed images before drawing them). I'm not sure if that'll work, so if it causes bugs, "
+                + "that's what's up.");
         MainBase.mainbase.drawElements();
     }
     

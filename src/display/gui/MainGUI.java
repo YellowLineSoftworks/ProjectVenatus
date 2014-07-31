@@ -55,6 +55,7 @@ public class MainGUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         MainTabbedPane = new javax.swing.JTabbedPane();
         MainPanel = new javax.swing.JPanel();
+        display = new graphics.swing.BufferedJPanel();
         ItemsPanel = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -227,15 +228,26 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout displayLayout = new javax.swing.GroupLayout(display);
+        display.setLayout(displayLayout);
+        displayLayout.setHorizontalGroup(
+            displayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 772, Short.MAX_VALUE)
+        );
+        displayLayout.setVerticalGroup(
+            displayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 519, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 772, Short.MAX_VALUE)
+            .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 519, Short.MAX_VALUE)
+            .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         MainTabbedPane.addTab("Game", MainPanel);
@@ -1572,8 +1584,7 @@ public class MainGUI extends javax.swing.JFrame {
         }else if(!DisplayHandler.currentAddonListDisplay.get(AddOnList.getSelectedIndex()-1).upgrade()){
             JOptionPane.showMessageDialog(ClientEventHandler.mgui, "You don't have the  resources required to do this");
         }
-        mainBaseImageDisplay.setIcon(new ImageIcon(MainBase.mainbase.image));
-        Tile.currentTile.displayAllObjects();
+        mainBaseImageDisplay.setIcon(new ImageIcon(MainBase.mainbase.image.image));
         DisplayHandler.addonInfoPrinter();
     }//GEN-LAST:event_UpgradeButtonMouseClicked
 
@@ -1666,7 +1677,7 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void MainPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_MainPanelComponentShown
-        DisplayHandler.disp.updateIcon();
+        
     }//GEN-LAST:event_MainPanelComponentShown
 
     /**
@@ -1732,6 +1743,7 @@ public class MainGUI extends javax.swing.JFrame {
     public static javax.swing.JTextArea addonDisplay;
     private javax.swing.JButton dexterityDown;
     private javax.swing.JButton dexterityUp;
+    public static graphics.swing.BufferedJPanel display;
     public static javax.swing.JLabel headPic;
     private javax.swing.JButton intellDown;
     private javax.swing.JButton intellUp;

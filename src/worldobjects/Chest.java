@@ -13,21 +13,17 @@ public class Chest extends ActivatableObject{
     public boolean tiered = true;
     
     //Constructor creates an empty chest at x and y cords
-    public Chest(int x, int y){
-        this.x = x;
-        this.y = y;
-        image = new ImageRetriever().getImage("/res/World Objects/Chest Closed");
+    public Chest(int x, int y, boolean display){
+        super(new ImageRetriever().getImage("/res/World Objects/Chest Closed"), x, y, display);
         items = generateItemList();
         init();
         
     }
     
     //Constructor takes a list of items to contain in the chest
-    public Chest(int x, int y,List<Item> is){
-        this.x = x;
-        this.y = y;
+    public Chest(int x, int y,List<Item> is, boolean display){
+        super(new ImageRetriever().getImage("/res/World Objects/Chest Closed.png"), x, y, display);
         items = is;
-        image = new ImageRetriever().getImage("/res/World Objects/Chest Closed.png");
         tiered=false;
         init();
     }

@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/homestead/CraftingBench.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/main/Objects/AttackableObject.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/homestead/MainBase.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/worldobjects/Bush.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/display/DisplayHandler.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/worldobjects/Chest.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/homestead/Bed.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/main/ClientEventHandler.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/worldobjects/FloatingItem.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/main/Objects/GameObject.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/homestead/Altar.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/homestead/AddOn.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/worldobjects/Pot.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/display/KeyListen.java</file>
+            <file>file:/C:/Users/Jack/Documents/GitHub/ProjectVenatus/src/main/Objects/ActivatableObject.java</file>
+        </group>
+    </open-files>
 </project-private>

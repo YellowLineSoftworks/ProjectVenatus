@@ -1,0 +1,35 @@
+Alters
+	
+
+High priority
+alchemy station
+work bench
+chest open art
+weapons sprites (sword sheild)
+textures for world
+	grassy
+	sandy
+	marshy(mud, tall grass)
+	homestead floors
+
+
+low priority
+Mage armor
+iron armor
+charcter sprites for mage/ rogue
+higher level huts 
+other weapons
+spells/ ingame sprites
+consumables
+	Health potion
+	mana potion 
+tree
+resize bush
+rocks 
+other buildings 
+	shops 
+	
+dead shrub
+(other world objects)
+pond
+

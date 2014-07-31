@@ -11,10 +11,8 @@ public class FloatingItem extends ActivatableObject {
     public Item i;
     
     public FloatingItem(int x, int y, Item i){
-        this.x = x;
-        this.y = y;
+        super(i.img.getImage(), x, y, true);
         this.i = i;
-        image = i.img.getImage();
         init();
         Tile.currentTile.addObject(this);
     }

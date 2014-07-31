@@ -15,13 +15,12 @@ public class Altar extends AddOn{
     public Belief currentBelief;
     
     public Altar(){
+        super(Belief.SECULARISM.img, 200, 200, true);
         addBelief(Belief.SECULARISM);
-        setBelief(Belief.SECULARISM);
         addBelief(Belief.BROTHERHOOD_OF_THE_LEAF);
         addBelief(Belief.BLOOD_HORDE);
         addBelief(Belief.FELLOWSHIP);
-        x = 200;
-        y = 200;
+        setBelief(Belief.SECULARISM);
         init();
         name = "Altar";
     }
@@ -33,7 +32,7 @@ public class Altar extends AddOn{
     public boolean setBelief(Belief b){
         if(beliefs.contains(b)){
             currentBelief = b;
-            image = currentBelief.img;
+            changeImage(currentBelief.img);
             return true;
         }else{
             return false;

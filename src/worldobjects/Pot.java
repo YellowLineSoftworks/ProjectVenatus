@@ -17,22 +17,18 @@ public class Pot extends main.Objects.AttackableObject {
     public List<Item> items = new ArrayList();
     
     //Constructor takes x and y cords
-    public Pot(int x, int y) {
+    public Pot(int x, int y, boolean display) {
+        super(new ImageRetriever().getImage("/res/World Objects/Pot.png"), x, y, display);
         health = 1;
         armor = 0;
-        image = new ImageRetriever().getImage("/res/World Objects/Pot.png");
-        this.x = x;
-        this.y = y;
         init();
     }
     
     //Constructor takes a list of items for the pot to drop
-    public Pot(int x, int y, List<Item> items) {
+    public Pot(int x, int y, List<Item> items, boolean display) {
+        super(new ImageRetriever().getImage("/res/World Objects/Pot.png"), x, y, display);
         health = 1;
         armor = 0;
-        image = new ImageRetriever().getImage("/res/World Objects/Pot.png");
-        this.x = x;
-        this.y = y;
         this.items = items;
         init();
     }

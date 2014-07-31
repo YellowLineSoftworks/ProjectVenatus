@@ -12,12 +12,9 @@ import main.ClientEventHandler;
 public class Bed extends AddOn{
     public Upgrade current_upgrade;
     
-    public Bed(){
-        super();
+    public Bed(boolean display){
+        super(new ImageRetriever().getImage("/res/Home Stead/Add Ons/Bed.png"), 100, 200, display);
         name = "Bed";
-        x = 100;
-        y = 200;
-        image = new ImageRetriever().getImage("/res/Home Stead/Add Ons/Bed.png");
         init();
     }
     

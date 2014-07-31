@@ -69,36 +69,24 @@ public class Tile implements Serializable{
     
     public void addObject(GameObject o){
         objects.add(o);
-        if (this == currentTile || isDev) {
-            this.displayAllObjects();
-        }
     }
     
     public void removeObject(GameObject o){
         objects.remove(o);
     }
     
-    public void displayAllObjects(){
-        for(int i = 0; i<objects.size(); i++){
-            objects.get(i).redisplayObject();
-        }
-        if(isMain){
-            MainBase.mainbase.redisplayObject();
-        }
-        
-            
-    }
-    
     public void setCurrentTile(){
         if (currentTile != null) {
             for (GameObject obj : currentTile.objects) {
-                DisplayHandler.disp.removeImage(obj.imageID);
+                DisplayHandler.disp.removeImage(obj.image.id);
             }
         }
         currentTileBackground = background;
         DisplayHandler.disp.setBackground(currentTileBackground);
+        for(GameObject obj : objects) {
+            obj.display();
+        }
         currentTile = this;
-        this.displayAllObjects();
     }
     
     public static boolean setCurrentTile(String direction){

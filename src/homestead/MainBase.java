@@ -4,7 +4,6 @@
  */
 package homestead;
 
-import display.Display;
 import display.ImageRetriever;
 import java.awt.Image;
 import java.lang.reflect.Method;
@@ -26,10 +25,10 @@ public class MainBase extends ActivatableObject{
     
     public int baseLevel = 1;
     
-    public Image baseImage1;
-    public Image baseImage2;
-    public Image baseImage3;
-    public Image baseImage4;
+    public static Image baseImage1 = new ImageRetriever().getImage("/res/Home Stead/Level1 Hut.png");
+    public static Image baseImage2 = new ImageRetriever().getImage("/res/Home Stead/level2 hut.jpg");
+    public static Image baseImage3 = new ImageRetriever().getImage("/res/Home Stead/level3 hut.jpg");
+    public static Image baseImage4 = new ImageRetriever().getImage("/res/Home Stead/level4 hut.png");
     
     public static MainBase mainbase;
     
@@ -39,26 +38,12 @@ public class MainBase extends ActivatableObject{
     
     public boolean inBase = false;
     
-    public MainBase(){
-        this.x = 300;
-        this.y = 300;
+    public MainBase(boolean display){
+        super(baseImage1, 300, 300, display);
         currentsilk+=300;
         currentwood+=2000;
         currentstone+=2000;
-        baseImage1 = new ImageRetriever().getImage("/res/Home Stead/level1 hut.png");
-        baseImage2 = new ImageRetriever().getImage("/res/Home Stead/level2 hut.jpg");
-        baseImage3 = new ImageRetriever().getImage("/res/Home Stead/level3 hut.jpg");
-        baseImage4 = new ImageRetriever().getImage("/res/Home Stead/level4 hut.png");
-        image = baseImage1;
         init();
-        test();
-    }
-    
-    void test(){
-        addAddon(new Bed());
-        addAddon(new Altar());
-        addAddon(new CraftingBench());
-        int a = 1;
     }
     
     public boolean upgrade(){
@@ -66,7 +51,7 @@ public class MainBase extends ActivatableObject{
             case 1:
                 if(currentwood >= 50&&currentstone>=50){
                     baseLevel++;
-                    image = baseImage2;
+                    changeImage(baseImage2);
                     currentwood-=50;
                     currentstone-=50;
                     display.DisplayHandler.addonInfoPrinter();
@@ -78,7 +63,7 @@ public class MainBase extends ActivatableObject{
             case 2:
                 if(currentwood >= 100&&currentstone>=100){
                     baseLevel++;
-                    image = baseImage3;
+                    changeImage(baseImage3);
                     currentwood-=100;
                     currentstone-=100;
                     display.DisplayHandler.addonInfoPrinter();
@@ -90,7 +75,7 @@ public class MainBase extends ActivatableObject{
             case 3:
                 if(currentwood >= 250&&currentstone>=250){
                     baseLevel++;
-                    image = baseImage4;
+                    changeImage(baseImage4);
                     currentwood-=250;
                     currentstone-=250;
                     display.DisplayHandler.addonInfoPrinter();
@@ -105,7 +90,7 @@ public class MainBase extends ActivatableObject{
     }
     
     //Returns info for display on GUI
-    public String display(){
+    public String getUpgradeInfo(){
         String resCount;
         switch(baseLevel){
             case 1:
@@ -132,12 +117,15 @@ public class MainBase extends ActivatableObject{
     
     public void drawElements(){
         for(int i = 0; i<addons.size();i++){
-            addons.get(i).printImg();
+            addons.get(i).display();
         }
     }
     
     public void enterBase(){
         inBase = true;
+        addAddon(new Bed(true));
+        addAddon(new Altar());
+        addAddon(new CraftingBench(true));
         baseTile.setCurrentTile();
     }
     

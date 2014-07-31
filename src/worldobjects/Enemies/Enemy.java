@@ -2,6 +2,7 @@
 
 package worldobjects.Enemies;
 
+import display.DisplayHandler;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,8 @@ import main.Macro.Direction;
 
 
 public class Enemy extends AttackableObject implements Runnable{
+    
     public int health;
-    public Image img;
     public String name;
     public Type type;
     public boolean alive;
@@ -38,18 +39,21 @@ public class Enemy extends AttackableObject implements Runnable{
         switch(d){
             case UP:
                 y+=20;
+                DisplayHandler.disp.moveImage(image.id, x, y);
                 break;
             case DOWN:
                 y-=20;
+                DisplayHandler.disp.moveImage(image.id, x, y);
                 break;
             case RIGHT:
                 x+=20;
+                DisplayHandler.disp.moveImage(image.id, x, y);
                 break;
             case LEFT:
                 x-=20;
+                DisplayHandler.disp.moveImage(image.id, x, y);
                 break;
         }
-        display.DisplayHandler.disp.refreshLayer1();
     }
 
     @Override

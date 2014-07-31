@@ -5,13 +5,16 @@
 
 package display.displayslaves;
 
+import display.DisplayHandler;
 import display.ImageRetriever;
 import display.gui.AddWorldObjectGUI;
 import display.gui.LevelMaker;
 import display.gui.SaveGUI;
+import graphics.BufferedDevice;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import main.Clock;
 import main.Objects.ActivatableObject;
 import main.Objects.AttackableObject;
 import main.Objects.GameObject;
@@ -44,11 +47,15 @@ public class LevelMakerDisplaySlave {
     }
     
     public static void initLevelMaker(){
-        display.DisplayHandler.disp.isDev = true;
+        DisplayHandler.isDev = true;
         cgui = new LevelMaker();
         cgui.setVisible(true);
         makeLists();
+        DisplayHandler.initDisplay();
+        Clock clock = new Clock();
+        clock.start(48, new BufferedDevice[] {LevelMaker.display});   
         tile = new Tile(new ImageRetriever().getImage("/res/Grass Background.png"));
+        tile.setCurrentTile();
         tile.isDev = true;
     }
     
@@ -87,12 +94,10 @@ public class LevelMakerDisplaySlave {
     public static void addObject(){
         switch(worldObjectGUI.sList.getSelectedIndex()){
             case 0:
-                tile.addObject(new Bush(Integer.parseInt(worldObjectGUI.xTextField.getText()), 
-                        Integer.parseInt(worldObjectGUI.yTextField.getText())));
+                tile.addObject(new Bush(Integer.parseInt(worldObjectGUI.xTextField.getText()), Integer.parseInt(worldObjectGUI.yTextField.getText()), true));
                 break;
             case 1:
-                tile.addObject(new Pot(Integer.parseInt(worldObjectGUI.xTextField.getText()), 
-                        Integer.parseInt(worldObjectGUI.yTextField.getText())));
+                tile.addObject(new Pot(Integer.parseInt(worldObjectGUI.xTextField.getText()), Integer.parseInt(worldObjectGUI.yTextField.getText()), true));
                 break;
                 
         }
